@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Pollinate</title>
+    <script src="vendors/angular.min.js"></script>
+    <script src="vendors/angular-route.min.js"></script>
+    <script src="vendors/jquery.min.js"></script>
+
+    <script src="scripts/module.js"></script>
+    <script src="scripts/config.js"></script>
+    <script src="scripts/nav.controller.js"></script>
+    <script src="scripts/plant.controller.js"></script>
+    <script src="scripts/grow.controller.js"></script>
+    <script src="scripts/garden.controller.js"></script>
+
+    <link rel="stylesheet" href="vendors/bootstrap.min.css" media="screen" title="bootstrap">
+
+    <base href="/">
+  </head>
+
+  <body>
+    <div ng-app="pollenApp" ng-controller="NavController as navCtrl" class="container">
+      <header></header>
+      <nav>
+        <a href="/plant">Plant</a>
+        <a href="/grow">Grow</a>
+        <a href="/garden">Garden</a>
+      </nav>
+
+
+    <div class="container" ng-view></div>
+    </div>
+  </body>
+
+</html>

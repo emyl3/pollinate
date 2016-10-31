@@ -1,7 +1,7 @@
 const pg = require('pg');
 
 var config = {
-  database: 'rho',
+  database: 'pollinate',
 };
 
 var pool = new pg.Pool(config);
