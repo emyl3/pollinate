@@ -7,7 +7,7 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'GrowController as growCtrl',
           }).when('/garden', {
             templateUrl: 'views/garden.html',
-            // controller: 'GardenController as gardenCtrl'
+            controller: 'GardenController as gardenCtrl'
           // }).otherwise({
           //   redirectTo: '/plant',
           });

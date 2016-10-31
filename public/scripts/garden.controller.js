@@ -1,8 +1,14 @@
 app.controller('GardenController', GardenController);
 
 function GardenController() {
-  var ctrl = this;
+  var $scope = this;
+  $scope.bigData = {};
 
-  console.log('GardenController loaded');
+    $scope.bigData.breakfast = false;
+    $scope.bigData.lunch = false;
+    $scope.bigData.dinner = false;
+
+    // COLLAPSE =====================
+    $scope.isCollapsed = false;
 
 }
