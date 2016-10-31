@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Pollinate - Main</title>
+    <script src="vendors/angular.min.js"></script>
+    <script src="vendors/angular-route.min.js"></script>
+    <script src="vendors/angular-animate.min.js"></script>
+    <script src="vendors/ui-bootstrap.js"></script>
+
+    <script src="scripts/module.js"></script>
+    <script src="scripts/config.js"></script>
+    <script src="scripts/login.controller.js"></script>
+    <script src="scripts/register.controller.js"></script>
+
+    <link rel="stylesheet" href="vendors/bootstrap.min.css" media="screen" title="bootstrap">
+    <link rel="stylesheet" href="vendors/ui-bootstrap-csp.css" media="screen" title="bootstrap">
+    <base href="/">
+  </head>
+
+  <body>
+    <div ng-app="pollenApp" ng-controller="LoginController as lCtrl" class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <header><h1>pollinate</h1></header>
+        </div>
+      </div>
+
+      <nav>
+        <a href="/register">register</a>
+      </nav>
+      <form class="form-horizontal col-xs-12 col-md-6 col-md-offset-3 well" ng-submit="lCtrl.login()">
+        <div class="form-group row">
+          <label class="control-label col-xs-offset-1 col-xs-2">Username:</label>
+          <div class="col-xs-8">
+            <input class="form-control" type="text" ng-model="lCtrl.username">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="control-label col-xs-offset-1 col-xs-2">Password:</label>
+          <div class="col-xs-8">
+            <input class="form-control" type="password" ng-model="lCtrl.password">
+          </div>
+        </div>
+        <div class="col-xs-offset-3 col-xs-10">
+          <button type="submit" class="btn btn-primary" >Login</button>
+        </div>
+      </form>
+
+    </div>
+  </body>
+</html>
