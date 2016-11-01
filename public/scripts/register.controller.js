@@ -9,10 +9,10 @@ function RegisterController($http, $location) {
     console.log('registering new user');
     $http.post('/register', {
       username: ctrl.username,
-      password: ctrl.password
-    }).then(function(){
+      password: ctrl.password,
+    }).then(function () {
       $location.path('/login');
-    }, function(error) {
+    }, function (error) {
       console.log('error registering', error);
     });
   };

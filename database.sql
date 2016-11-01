@@ -1,7 +1,8 @@
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username varchar(80) UNIQUE NOT NULL,
-    password varchar(100) NOT NULL
+    password varchar(100) NOT NULL,
+    admin boolean DEFAULT false
 );
 
 CREATE TABLE flowers (

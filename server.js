@@ -19,7 +19,7 @@ const sessionConfig = {
   saveUninitialized: true,
   cookie: {
     maxAge: 30 * 60 * 1000,
-    secure: false
+    secure: false,
   }
 };
 
@@ -34,21 +34,22 @@ app.use(passport.session());
 app.use('/login', login);
 app.use('/register', register);
 
-app.get('/', function(req, res){
-  res.sendFile(path.join(__dirname, 'public/views/login.html'));
-});
-
-app.get('/login', function(req, res){
-  res.sendFile(path.join(__dirname, 'public/views/login.html'));
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public/views/entry.html'));
 });
 
 app.use(ensureAuthenticated);
 
-app.get('/supersecret', function(req, res){
-  res.send('the password is banana');
-})
+app.get('/userInfo', function (req, res) {
+  var user = req.user;
+  res.send(user);
+});
 
-app.get('/*', function(req, res){
+app.get('/admin', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public/views/admin.html'));
+});
+
+app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'public/views/index.html'));
 });
 

@@ -25,7 +25,6 @@ function findByUsername(username) {
   });
 }
 
-
 // find by id
 function findById(id) {
   return new Promise(function (resolve, reject) {
