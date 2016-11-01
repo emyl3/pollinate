@@ -17,5 +17,10 @@ CREATE TABLE user_flowers (
     id SERIAL PRIMARY KEY,
     flower_id integer REFERENCES flowers,
     user_id integer REFERENCES users,
-    quantity integer
+    quantity integer NOT NULL
+);
+
+CREATE TABLE prompts (
+    id SERIAL PRIMARY KEY,
+    question varchar(80)
 );
