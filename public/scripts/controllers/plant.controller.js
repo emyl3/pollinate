@@ -17,11 +17,17 @@ function PlantController(prompt, userData) {
       });
   };
 
-  ctrl.submit = function (user, id, response) {
+  ctrl.submit = function (user, id, response, statement) {
+    var entryDate = new Date();
+    var dd = entryDate.getDate();
+    var mm = entryDate.getMonth() + 1;
+    var yyyy = entryDate.getFullYear();
+    var date = mm + '/' + dd + '/' + yyyy;
+
     var value = {
       user: user,
       id: id,
-      response: response,
+      response: 'On ' + date + ', I ' + statement + ' ' + response,
     };
 
     prompt.postResponse(value)
