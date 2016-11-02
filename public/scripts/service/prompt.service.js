@@ -28,9 +28,18 @@ function PromptService($http) {
     });
   }
 
+  function changeResStatus(id) {
+    var data = { id: id };
+    return $http.put('/prompts/userResponse', data)
+    .then(function (response) {
+      return response;
+    });
+  }
+
   return {
     getPromptArray: getPromptArray,
     postResponse: postResponse,
     getResponses: getResponses,
+    changeResStatus: changeResStatus,
   };
 }

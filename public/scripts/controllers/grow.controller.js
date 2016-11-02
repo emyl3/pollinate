@@ -34,11 +34,20 @@ function GrowController(prompt, userData) {
   };
 
   ctrl.feedPlant = function () {
-    console.log('in feedd plant');
+    var idToChange;
     if (ctrl.item === 'water') {
+      idToChange = ctrl.waterId;
+      prompt.changeResStatus(idToChange).then(function(response){
+      console.log('changed id');
       ctrl.water = 'waterchangenow';
+      });
+
     } else if (ctrl.item === 'sun') {
+      idToChange = ctrl.sunId;
+      prompt.changeResStatus(idToChange).then(function(response){
+      console.log('changed id');
       ctrl.sun = 'sunchangednow';
+    });
     }
   };
 

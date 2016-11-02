@@ -36,6 +36,34 @@ router.get('/userResponse', function (req, res) {
   });
 });
 
+router.put('/userResponse', function (req, res) {
+  console.log('request', req.body);
+  pool.connect(function (err, client, done) {
+    try {
+      if (err) {
+        console.log('Error connecting to the database', err);
+        res.sendStatus(500);
+        return;
+      }
+
+      client.query('UPDATE user_responses SET used = true WHERE id = $1 returning *;',
+        [req.body.id],
+        function (err, result) {
+          if (err) {
+            console.log('Error querying the database', err);
+            res.sendStatus(500);
+            return;
+          }
+
+          console.log('Got rows from the database: ', result.rows);
+          res.send(result.rows);
+        });
+    } finally {
+      done();
+    }
+  });
+});
+
 router.get('/', function (req, res) {
   pool.connect(function (err, client, done) {
     try {
