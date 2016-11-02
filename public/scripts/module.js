@@ -1,1 +1,1 @@
-var app = angular.module('pollenApp', ['ngRoute', 'ui.bootstrap']);
+var app = angular.module('pollenApp', ['ngRoute', 'ui.bootstrap', 'ngDragDrop']);
