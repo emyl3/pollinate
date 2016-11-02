@@ -43,8 +43,8 @@ router.post('/', function (req, res) {
         return;
       }
 
-      client.query('INSERT INTO favorites (url, comment) VALUES ($1, $2) returning *;',
-        [req.body.url, req.body.comment],
+      client.query('INSERT INTO user_responses (user_id, prompt_id, response) VALUES ($1, $2, $3) returning *;',
+        [req.body.user, req.body.id, req.body.response],
         function (err, result) {
           if (err) {
             console.log('Error querying the database', err);

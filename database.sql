@@ -24,3 +24,11 @@ CREATE TABLE prompts (
     id SERIAL PRIMARY KEY,
     question varchar(80)
 );
+
+CREATE TABLE user_responses (
+    id SERIAL PRIMARY KEY,
+    user_id integer REFERENCES users,
+    prompt_id integer REFERENCES prompts,
+    response varchar(120) NOT NULL,
+    used boolean DEFAULT false
+);
