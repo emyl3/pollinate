@@ -9,6 +9,8 @@ const login = require('./routes/login');
 const register = require('./routes/register');
 const auth = require('./authentication/setup');
 
+const prompts = require('./routes/prompts');
+
 auth.setup();
 
 const user = require('./models/user');
@@ -44,6 +46,8 @@ app.get('/userInfo', function (req, res) {
   var user = req.user;
   res.send(user);
 });
+
+app.use('/prompts', prompts);
 
 app.get('/admin', function (req, res) {
   res.sendFile(path.join(__dirname, 'public/views/admin.html'));
