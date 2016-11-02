@@ -1,13 +1,6 @@
 app.service('prompt', PromptService);
 
 function PromptService($http) {
-  function getUserInfo() {
-    return $http.get('/userInfo')
-      .then(function (response) {
-      return response;
-    });
-  }
-
   function getPromptArray() {
     return $http.get('/prompts')
     .then(function (response) {
@@ -22,9 +15,19 @@ function PromptService($http) {
     });
   }
 
+  function getResponses(userId) {
+    return $http.get('/prompts/userResponse', {
+      params: {
+        userId: userId,
+      },
+    }).then(function (response) {
+      return response.data;
+    });
+  }
+
   return {
-    getUserInfo: getUserInfo,
     getPromptArray: getPromptArray,
     postResponse: postResponse,
+    getResponses: getResponses,
   };
 }

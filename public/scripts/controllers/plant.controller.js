@@ -1,9 +1,9 @@
 app.controller('PlantController', PlantController);
 
-function PlantController(prompt) {
+function PlantController(prompt, userData) {
   var ctrl = this;
 
-  prompt.getUserInfo().then(function (response) {
+  userData.getUserInfo().then(function (response) {
       ctrl.userId = response.data.id;
     });
 
