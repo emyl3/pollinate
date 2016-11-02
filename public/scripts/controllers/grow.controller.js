@@ -1,11 +1,18 @@
 app.controller('GrowController', GrowController);
 
-function GrowController(prompt) {
+function GrowController(prompt, userData) {
   var ctrl = this;
 
-prompt.getResponses(2).then(function(response) {
-  console.log(response);
-})
+  userData.getUserId().then(function (response) {
+    ctrl.userId = response;
+  });
+
+  ctrl.gatherNutrients = function (idNum) {
+    prompt.getResponses(idNum).then(function (response) {
+      console.log(response);
+    });
+  };
+
   console.log('GrowController loaded');
 
 }
