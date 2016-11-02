@@ -21,7 +21,10 @@ function PromptService($http) {
         userId: userId,
       },
     }).then(function (response) {
-      return response.data;
+      return {
+        data: response.data,
+        length: response.data.length,
+      };
     });
   }
 
