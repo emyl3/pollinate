@@ -8,10 +8,10 @@ function PlantController(prompt, userData) {
     });
 
   ctrl.getPrompt = function () {
-    num = getRandomNumber();
 
     prompt.getPromptArray()
       .then(function (response) {
+        var num = getRandomNumber();
         ctrl.prompt = response[num].statement;
         ctrl.promptId = response[num].id;
       });
@@ -38,9 +38,9 @@ function PlantController(prompt, userData) {
   };
 
   ctrl.getPrompt();
-}
 
-function getRandomNumber() {
-  var promptNumber = Math.floor((Math.random() * 5) + 0);
-  return promptNumber;
+  function getRandomNumber() {
+    var promptNumber = Math.floor((Math.random() * 5) + 0);
+    return promptNumber;
+  }
 }

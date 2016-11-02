@@ -15,4 +15,9 @@ function GrowController(prompt, userData) {
 
   console.log('GrowController loaded');
 
+
+}
+function getRandomNumber(num) {
+  var promptNumber = Math.floor((Math.random() * num) + 0);
+  return promptNumber;
 }
