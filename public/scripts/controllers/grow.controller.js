@@ -9,17 +9,22 @@ function GrowController(prompt, userData) {
 
   ctrl.gatherNutrients = function (idNum) {
     prompt.getResponses(idNum).then(function (response) {
-      var firstNum = getRandomNumber(response.length);
-      var secondNum = getRandomNumber(response.length);
+      if (response.length >= 2) {
+        var firstNum = getRandomNumber(response.length, 0);
+        var secondNum = getRandomNumber(response.length, 0);
 
-      while (firstNum === secondNum) {
-        secondNum = getRandomNumber(response.length);
+        while (firstNum === secondNum) {
+          secondNum = getRandomNumber(response.length, 0);
+        }
+
+        ctrl.water = response.data[firstNum].response;
+        ctrl.waterId = response.data[firstNum].id;
+        ctrl.sun = response.data[secondNum].response;
+        ctrl.sunId = response.data[secondNum].id;
+      } else {
+        //need to create alert that redirects to plant page
+        console.log('you need more nutrients.');
       }
-
-      ctrl.water = response.data[firstNum].response;
-      ctrl.waterId = response.data[firstNum].id;
-      ctrl.sun = response.data[secondNum].response;
-      ctrl.sunId = response.data[secondNum].id;
     });
   };
 
@@ -37,24 +42,22 @@ function GrowController(prompt, userData) {
     var idToChange;
     if (ctrl.item === 'water') {
       idToChange = ctrl.waterId;
-      prompt.changeResStatus(idToChange).then(function(response){
-      console.log('changed id');
-      ctrl.water = 'waterchangenow';
+      prompt.changeResStatus(idToChange).then(function (response) {
+        ctrl.water = 'waterchangenow';
       });
 
     } else if (ctrl.item === 'sun') {
       idToChange = ctrl.sunId;
-      prompt.changeResStatus(idToChange).then(function(response){
-      console.log('changed id');
-      ctrl.sun = 'sunchangednow';
-    });
+      prompt.changeResStatus(idToChange).then(function (response) {
+        ctrl.sun = 'sunchangednow';
+      });
     }
   };
 
   console.log('GrowController loaded');
 
-  function getRandomNumber(num) {
-    var promptNumber = Math.floor((Math.random() * num) + 0);
+  function getRandomNumber(max, min) {
+    var promptNumber = Math.floor((Math.random() * max) + min);
     return promptNumber;
   }
 
