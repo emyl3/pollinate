@@ -19,5 +19,8 @@ cp node_modules/angular-animate/angular-animate.min.js.map public/vendors;
 
 cp node_modules/angular-dragdrop/src/angular-dragdrop.min.js public/vendors;
 
+cp node_modules/angular-modal-service/dst/angular-modal-service.min.js public/vendors
+cp node_modules/angular-modal-service/dst/angular-modal-service.min.js.map public/vendors
+
 cp node_modules/jquery/dist/jquery.min.js public/vendors;
 cp node_modules/jquery/dist/jquery.min.map public/vendors

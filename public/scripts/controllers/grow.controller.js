@@ -1,6 +1,6 @@
 app.controller('GrowController', GrowController);
 
-function GrowController(prompt, userData, progress, flower) {
+function GrowController(prompt, userData, progress, flower, ModalService) {
   var ctrl = this;
   var maxNum;
   var current;
@@ -78,6 +78,7 @@ function GrowController(prompt, userData, progress, flower) {
     }
   };
 
+
   function check() {
     console.log('in check');
     ctrl.current++;
@@ -93,10 +94,13 @@ function GrowController(prompt, userData, progress, flower) {
       flower.getFlowerNumber().then(function (response) {
         var flowerIdMax =  response + 1;
         var flowerId = getRandomNumber(1, flowerIdMax);
-
       });
       //get request to get a flower
-      //display flower
+      ModalService.showModal({
+          templateUrl:
+          'views/partials/modal.html',
+          controller: 'ModalController as mCtrl',
+        });
       ctrl.max = getRandomNumber(25, 35);
       ctrl.current = 0;
       data = { userId: ctrl.userId, maxNum: ctrl.max, current: ctrl.current };
