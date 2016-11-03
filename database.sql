@@ -32,3 +32,10 @@ CREATE TABLE user_responses (
     response varchar(120) NOT NULL,
     used boolean DEFAULT false
 );
+
+CREATE TABLE user_progress (
+    id SERIAL PRIMARY KEY,
+    user_id integer REFERENCES users,
+    max integer NOT NULL,
+    current integer NOT NULL
+);

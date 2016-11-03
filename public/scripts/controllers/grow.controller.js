@@ -1,20 +1,43 @@
 app.controller('GrowController', GrowController);
 
-function GrowController(prompt, userData) {
+function GrowController(prompt, userData, progress) {
   var ctrl = this;
+  var maxNum;
+  var current;
 
   userData.getUserId().then(function (response) {
     ctrl.userId = response;
+    progress.getProgress(ctrl.userId).then(function (response) {
+      var progressData = response[0];
+      var data;
+
+      if (response.length === 0) {
+        ctrl.max = getRandomNumber(35, 55);
+        ctrl.current = 0;
+        data = { userId: ctrl.userId, maxNum: ctrl.max, current: ctrl.current };
+        progress.postProgress(data);
+
+      } else if (progressData.max === progressData.current) {
+        ctrl.max = getRandomNumber(35, 55);
+        ctrl.current = 0;
+        data = { userId: ctrl.userId, maxNum: ctrl.max, current: ctrl.current };
+        progress.editProgress(data);
+
+      } else {
+        ctrl.max = progressData.max;
+        ctrl.current = progressData.current;
+      }
+    });
   });
 
   ctrl.gatherNutrients = function (idNum) {
     prompt.getResponses(idNum).then(function (response) {
       if (response.length >= 2) {
-        var firstNum = getRandomNumber(response.length, 0);
-        var secondNum = getRandomNumber(response.length, 0);
+        var firstNum = getRandomNumber(0, response.length);
+        var secondNum = getRandomNumber(0, response.length);
 
         while (firstNum === secondNum) {
-          secondNum = getRandomNumber(response.length, 0);
+          secondNum = getRandomNumber(0, response.length);
         }
 
         ctrl.water = response.data[firstNum].response;
@@ -43,22 +66,22 @@ function GrowController(prompt, userData) {
     if (ctrl.item === 'water') {
       idToChange = ctrl.waterId;
       prompt.changeResStatus(idToChange).then(function (response) {
-        ctrl.water = 'waterchangenow';
+        ctrl.water = 'waterchangenow'; //change effect here
       });
 
     } else if (ctrl.item === 'sun') {
       idToChange = ctrl.sunId;
       prompt.changeResStatus(idToChange).then(function (response) {
-        ctrl.sun = 'sunchangednow';
+        ctrl.sun = 'sunchangednow'; //change effect here
       });
     }
   };
 
   console.log('GrowController loaded');
 
-  function getRandomNumber(max, min) {
-    var promptNumber = Math.floor((Math.random() * max) + min);
-    return promptNumber;
+  function getRandomNumber(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
   }
-
 }

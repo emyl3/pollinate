@@ -3,5 +3,6 @@
   <span data-drag="true" ng-value={{gCtrl.waterId}} jqyoui-draggable="{onStop:'gCtrl.setWater()'}">{{gCtrl.water}}</span>
   <span data-drag="true" ng-value={{gCtrl.sunId}} jqyoui-draggable="{onStop:'gCtrl.setSun()'}">{{gCtrl.sun}}</span>
   <div data-drop="true" ng-value={{gCtrl.item}} jqyoui-droppable="{onDrop:'gCtrl.feedPlant()'}"> HERE </div>
-
+  <small><em>Object (changes type based on value)</em></small>
+  <uib-progressbar class="progress-striped active" max="gCtrl.max" value="gCtrl.current" type="status">hi</uib-progressbar>
 </div>

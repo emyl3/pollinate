@@ -10,6 +10,7 @@ const register = require('./routes/register');
 const auth = require('./authentication/setup');
 
 const prompts = require('./routes/prompts');
+const progress = require('./routes/progress');
 
 auth.setup();
 
@@ -48,6 +49,7 @@ app.get('/userInfo', function (req, res) {
 });
 
 app.use('/prompts', prompts);
+app.use('/progress', progress);
 
 app.get('/admin', function (req, res) {
   res.sendFile(path.join(__dirname, 'public/views/admin.html'));
