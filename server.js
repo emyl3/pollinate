@@ -11,6 +11,7 @@ const auth = require('./authentication/setup');
 
 const prompts = require('./routes/prompts');
 const progress = require('./routes/progress');
+const flowers = require('./routes/flowers');
 
 auth.setup();
 
@@ -50,6 +51,7 @@ app.get('/userInfo', function (req, res) {
 
 app.use('/prompts', prompts);
 app.use('/progress', progress);
+app.use('/flowers', flowers);
 
 app.get('/admin', function (req, res) {
   res.sendFile(path.join(__dirname, 'public/views/admin.html'));

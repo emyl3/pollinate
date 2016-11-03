@@ -1,6 +1,6 @@
 app.controller('GrowController', GrowController);
 
-function GrowController(prompt, userData, progress) {
+function GrowController(prompt, userData, progress, flower) {
   var ctrl = this;
   var maxNum;
   var current;
@@ -90,7 +90,11 @@ function GrowController(prompt, userData, progress) {
       });
     } else if (ctrl.current === ctrl.max) {
       console.log('YAY!');
+      flower.getFlowerNumber().then(function (response) {
+        var flowerIdMax =  response + 1;
+        var flowerId = getRandomNumber(1, flowerIdMax);
 
+      });
       //get request to get a flower
       //display flower
       ctrl.max = getRandomNumber(25, 35);
