@@ -6,10 +6,10 @@ function GrowController(prompt, userData, progress) {
   var current;
 
   userData.getUserId().then(function (response) {
+    var data;
     ctrl.userId = response;
     progress.getProgress(ctrl.userId).then(function (response) {
       var progressData = response[0];
-      var data;
 
       if (response.length === 0) {
         ctrl.max = getRandomNumber(35, 55);
@@ -67,17 +67,40 @@ function GrowController(prompt, userData, progress) {
       idToChange = ctrl.waterId;
       prompt.changeResStatus(idToChange).then(function (response) {
         ctrl.water = 'waterchangenow'; //change effect here
+        check();
       });
-
     } else if (ctrl.item === 'sun') {
       idToChange = ctrl.sunId;
       prompt.changeResStatus(idToChange).then(function (response) {
         ctrl.sun = 'sunchangednow'; //change effect here
+        check();
       });
     }
   };
 
-  console.log('GrowController loaded');
+  function check() {
+    console.log('in check');
+    ctrl.current++;
+    if (ctrl.current < ctrl.max) {
+      //status dialog here
+      console.log('in if');
+      data = { userId: ctrl.userId, maxNum: ctrl.max, current: ctrl.current };
+      progress.editProgress(data).then(function (response) {
+        progress.getProgress(ctrl.userId);
+      });
+    } else if (ctrl.current === ctrl.max) {
+      console.log('YAY!');
+
+      //get request to get a flower
+      //display flower
+      ctrl.max = getRandomNumber(35, 55);
+      ctrl.current = 0;
+      data = { userId: ctrl.userId, maxNum: ctrl.max, current: ctrl.current };
+      progress.editProgress(data).then(function (response) {
+        progress.getProgress(ctrl.userId);
+      });
+    }
+  }
 
   function getRandomNumber(min, max) {
     min = Math.ceil(min);
