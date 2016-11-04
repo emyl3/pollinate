@@ -1,9 +1,9 @@
 app.controller('ModalController', ModalController);
 
-function ModalController () {
+function ModalController ($uibModalInstance) {
     var ctrl = this;
-    // ctrl.dismissModal = function(result) {
-    //     close(result, 200);
-    // }
+    ctrl.close = function () {
+                 $uibModalInstance.close();
+               };
     console.log('modal controller loaded');
 }

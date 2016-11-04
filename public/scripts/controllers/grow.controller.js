@@ -1,6 +1,6 @@
 app.controller('GrowController', GrowController);
 
-function GrowController(prompt, userData, progress, flower, ModalService) {
+function GrowController(prompt, userData, progress, flower, $uibModal) {
   var ctrl = this;
   var maxNum;
   var current;
@@ -96,11 +96,7 @@ function GrowController(prompt, userData, progress, flower, ModalService) {
         var flowerId = getRandomNumber(1, flowerIdMax);
       });
       //get request to get a flower
-      ModalService.showModal({
-          templateUrl:
-          'views/partials/modal.html',
-          controller: 'ModalController as mCtrl',
-        });
+
       ctrl.max = getRandomNumber(25, 35);
       ctrl.current = 0;
       data = { userId: ctrl.userId, maxNum: ctrl.max, current: ctrl.current };
@@ -110,6 +106,12 @@ function GrowController(prompt, userData, progress, flower, ModalService) {
     }
   }
 
+  ctrl.open = function () {
+                  var modalInstance = $uibModal.open({
+                      templateUrl: 'views/partials/modal.html',
+                      controller: 'ModalController as mCtrl',
+                  });
+              };
   function getRandomNumber(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
