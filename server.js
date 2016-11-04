@@ -69,6 +69,10 @@ app.get('/login', function (req, res) {
 
 app.use(ensureAuthenticated);
 
+app.use('/prompts', prompts);
+app.use('/progress', progress);
+app.use('/flowers', flowers);
+
 app.get('/userInfo', function (req, res) {
   var user = req.user;
   res.send(user);
@@ -81,10 +85,6 @@ app.get('/admin', function (req, res) {
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'public/views/index.html'));
 });
-
-app.use('/prompts', prompts);
-app.use('/progress', progress);
-app.use('/flowers', flowers);
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {

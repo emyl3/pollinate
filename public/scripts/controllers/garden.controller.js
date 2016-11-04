@@ -1,6 +1,6 @@
 app.controller('GardenController', GardenController);
 
-function GardenController(userData, flower) {
+function GardenController(userData, flower, $uibModal) {
   var ctrl = this;
 
   userData.getUserId().then(function (response) {
