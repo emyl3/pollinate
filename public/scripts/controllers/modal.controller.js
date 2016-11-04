@@ -4,7 +4,6 @@ function ModalController($uibModalInstance, flower, flowerId) {
   var ctrl = this;
 
   flower.getReward(flowerId).then(function (response) {
-    console.log(response);
     ctrl.url = response[0].url;
   })
 
