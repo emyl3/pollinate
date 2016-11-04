@@ -26,9 +26,22 @@ function FlowerService($http) {
     });
   }
 
+  function getUserFlowers(userId) {
+    return $http.get('/flowers/user', {
+      params: {
+        userId: userId,
+      },
+    }).then(function (response) {
+      return response.data;
+    });
+  }
+
+
+
   return {
     getFlowerNumber: getFlowerNumber,
     getReward: getReward,
     postFlower: postFlower,
+    getUserFlowers: getUserFlowers,
   };
 }

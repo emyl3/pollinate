@@ -14,7 +14,6 @@
     "angular": "^1.5.8",
     "angular-animate": "^1.5.8",
     "angular-dragdrop": "^1.0.13",
-    "angular-modal-service": "^0.10.1",
     "angular-route": "^1.5.8",
     "angular-ui-bootstrap": "^2.2.0",
     "bcrypt": "^0.8.7",

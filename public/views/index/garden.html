@@ -1,6 +1,10 @@
 <h1>hi - garden</h1>
 <div class="btn-group" data-toggle="buttons">
 
+  <div ng-repeat="flower in gCtrl.flowers">
+    <img ng-src="{{flower.url}}"/>
+    <p>Count: {{flower.count}}</p>
+  </div>
     <label class="btn btn-primary" ng-model="bigData.breakfast" btn-checkbox>
       Breakfast
     </label>

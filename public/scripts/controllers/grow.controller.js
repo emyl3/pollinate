@@ -114,12 +114,8 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
   ctrl.openModal = function () {
     var modalInstance = $uibModal.open({
       templateUrl: 'views/partials/rewardModal.html',
-      controller: 'ModalController as mCtrl',
+      controller: 'RewardModalController as rCtrl',
       resolve: {
-        userId: function () {
-          return ctrl.userId;
-        },
-
         flowerId: function () {
           return ctrl.flowerId;
         },
