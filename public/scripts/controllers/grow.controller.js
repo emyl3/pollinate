@@ -113,7 +113,7 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
 //somehow delay opening modal since the image takes some time to load
   ctrl.openModal = function () {
     var modalInstance = $uibModal.open({
-      templateUrl: 'views/partials/modal.html',
+      templateUrl: 'views/partials/rewardModal.html',
       controller: 'ModalController as mCtrl',
       resolve: {
         userId: function () {

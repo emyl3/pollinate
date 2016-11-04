@@ -25,13 +25,6 @@ function FlowerService($http) {
       return response.data;
     });
   }
-  // 
-  // function postReward(data) {
-  //   return $http.post('/flowers/reward', data)
-  //   .then(function (response) {
-  //     return response;
-  //   });
-  // }
 
   return {
     getFlowerNumber: getFlowerNumber,
