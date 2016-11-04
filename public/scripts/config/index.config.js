@@ -1,15 +1,15 @@
 app.config(function ($routeProvider, $locationProvider) {
   $routeProvider.when('/home', {
-            templateUrl: 'views/plant.html',
+            templateUrl: 'views/index/plant.html',
             controller: 'PlantController as pCtrl',
           }).when('/garden', {
-            templateUrl: 'views/garden.html',
+            templateUrl: 'views/index/garden.html',
             controller: 'GardenController as gCtrl',
           }).when('/grow', {
-            templateUrl: 'views/grow.html',
+            templateUrl: 'views/index/grow.html',
             controller: 'GrowController as gCtrl',
           }).when('/plant', {
-            templateUrl: 'views/plant.html',
+            templateUrl: 'views/index/plant.html',
             controller: 'PlantController as pCtrl',
           }).otherwise({
             redirectTo: '/home',

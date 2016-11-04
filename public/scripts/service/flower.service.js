@@ -1,13 +1,13 @@
 app.service('flower', FlowerService);
 
 function FlowerService($http) {
-  //
-  // function postProgress(data) {
-  //   return $http.post('/progress', data)
-  //   .then(function (response) {
-  //     return response;
-  //   });
-  // }
+
+  function postFlower(data) {
+    return $http.post('/flowers', data)
+    .then(function (response) {
+      return response;
+    });
+  }
 
   function getFlowerNumber() {
     return $http.get('/flowers')
@@ -16,8 +16,18 @@ function FlowerService($http) {
       });
   }
 
-  // function editProgress(data) {
-  //   return $http.put('/progress', data)
+  function getReward(flowerId) {
+    return $http.get('/flowers/reward', {
+      params: {
+        flowerId: flowerId,
+      },
+    }).then(function (response) {
+      return response.data;
+    });
+  }
+  // 
+  // function postReward(data) {
+  //   return $http.post('/flowers/reward', data)
   //   .then(function (response) {
   //     return response;
   //   });
@@ -25,5 +35,7 @@ function FlowerService($http) {
 
   return {
     getFlowerNumber: getFlowerNumber,
+    getReward: getReward,
+    postFlower: postFlower,
   };
 }

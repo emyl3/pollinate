@@ -53,12 +53,10 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
 
   ctrl.setWater = function () {
     ctrl.item = 'water';
-    console.log(ctrl.item);
   };
 
   ctrl.setSun = function () {
     ctrl.item = 'sun';
-    console.log(ctrl.item);
   };
 
   ctrl.feedPlant = function () {
@@ -78,24 +76,30 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
     }
   };
 
-
   function check() {
     console.log('in check');
     ctrl.current++;
     if (ctrl.current < ctrl.max) {
       //status dialog here
-      console.log('in if');
       data = { userId: ctrl.userId, maxNum: ctrl.max, current: ctrl.current };
       progress.editProgress(data).then(function (response) {
         progress.getProgress(ctrl.userId);
       });
     } else if (ctrl.current === ctrl.max) {
       console.log('YAY!');
-      flower.getFlowerNumber().then(function (response) {
+      flower.getFlowerNumber()
+        .then(function (response) {
         var flowerIdMax =  response + 1;
-        var flowerId = getRandomNumber(1, flowerIdMax);
+        ctrl.flowerId = getRandomNumber(1, flowerIdMax);
+
+        flower.getReward(ctrl.flowerId)
+          .then(function (response) {
+            var data = { flowerId: ctrl.flowerId, userId: ctrl.userId };
+            flower.postFlower(data).then(function (response) {
+              ctrl.openModal();
+            });
+          });
       });
-      //get request to get a flower
 
       ctrl.max = getRandomNumber(25, 35);
       ctrl.current = 0;
@@ -106,12 +110,22 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
     }
   }
 
-  ctrl.open = function () {
-                  var modalInstance = $uibModal.open({
-                      templateUrl: 'views/partials/modal.html',
-                      controller: 'ModalController as mCtrl',
-                  });
-              };
+  ctrl.openModal = function () {
+    var modalInstance = $uibModal.open({
+      templateUrl: 'views/partials/modal.html',
+      controller: 'ModalController as mCtrl',
+      resolve: {
+        userId: function () {
+          return ctrl.userId;
+        },
+
+        flowerId: function () {
+          return ctrl.flowerId;
+        },
+      },
+    });
+  };
+
   function getRandomNumber(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
