@@ -1,21 +1,7 @@
 <h1>hi - garden</h1>
-<div class="btn-group" data-toggle="buttons">
 
   <div ng-repeat="flower in gCtrl.flowers">
     <img ng-src="{{flower.url}}"/>
     <p>Count: {{flower.count}}</p>
-    <button ng-value="{{flower.id}}" ng-click="{{gCtrl.openModal(flower.id)}}"
+    <button class="btn-group btn" ng-value="flower.flower_id" ng-click="gCtrl.openModal(flower.flower_id)">Send to a Friend</button>
   </div>
-    <label class="btn btn-primary" ng-model="bigData.breakfast" btn-checkbox>
-      Breakfast
-    </label>
-
-    <label class="btn btn-primary" ng-model="bigData.lunch" btn-checkbox>
-      Lunch
-    </label>
-
-    <label class="btn btn-primary" ng-model="bigData.dinner" btn-checkbox>
-      Dinner
-    </label>
-
-</div>

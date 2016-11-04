@@ -18,7 +18,7 @@ function GardenController(userData, flower, $uibModal) {
       controller: 'SendFlowerModalController as sCtrl',
       resolve: {
         flowerId: function () {
-          return ctrl.flowerId;
+          return flowerId;
         },
       },
     });
