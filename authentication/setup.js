@@ -21,7 +21,6 @@ exports.setup = function () {
       done(err);
     });
   });
-
 };
 
 function findAndComparePassword(username, password, done) {
