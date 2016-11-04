@@ -1,8 +1,12 @@
+const dotenv = require('dotenv');
+dotenv.load();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const passport = require('passport');
 const session = require('express-session');
+const twilio = require('twilio');
 
 const connection = require('./database/connection');
 const login = require('./routes/login');
@@ -14,6 +18,19 @@ const progress = require('./routes/progress');
 const flowers = require('./routes/flowers');
 
 auth.setup();
+
+const TWILIO_ACC = process.env.TWILIO_ACC_SID;
+const TWILIO_AUTH = process.env.TWILIO_AUTH_TOKEN;
+var client = twilio(TWILIO_ACC, TWILIO_AUTH);
+client.sendMessage({
+  to: '+12015668084',
+  from: '+12012920629',
+  body: 'Hello from Twilio!'
+});
+
+client.sendMessage().then(function(){
+  console.log('message sent');
+});
 
 const user = require('./models/user');
 const sessionConfig = {
