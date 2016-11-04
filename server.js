@@ -1,12 +1,12 @@
-const dotenv = require('dotenv');
-dotenv.load();
+// const dotenv = require('dotenv');
+// dotenv.load();
 
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const passport = require('passport');
 const session = require('express-session');
-const twilio = require('twilio');
+// const twilio = require('twilio');
 
 const connection = require('./database/connection');
 const login = require('./routes/login');
@@ -19,18 +19,18 @@ const flowers = require('./routes/flowers');
 
 auth.setup();
 
-const TWILIO_ACC = process.env.TWILIO_ACC_SID;
-const TWILIO_AUTH = process.env.TWILIO_AUTH_TOKEN;
-var client = twilio(TWILIO_ACC, TWILIO_AUTH);
-client.sendMessage({
-  to: '+12015668084',
-  from: '+12012920629',
-  body: 'Hello from Twilio!'
-});
+// const TWILIO_ACC = process.env.TWILIO_ACC_SID;
+// const TWILIO_AUTH = process.env.TWILIO_AUTH_TOKEN;
+// var client = twilio(TWILIO_ACC, TWILIO_AUTH);
+// client.sendMessage({
+//   to: '+12015668084',
+//   from: '+12012920629',
+//   body: 'Hello from Twilio!'
+// });
 
-client.sendMessage().then(function(){
-  console.log('message sent');
-});
+// client.sendMessage().then(function(){
+//   console.log('message sent');
+// });
 
 const user = require('./models/user');
 const sessionConfig = {
@@ -59,16 +59,20 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'public/views/entry.html'));
 });
 
+app.get('/register', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public/views/entry.html'));
+});
+
+app.get('/login', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public/views/entry.html'));
+});
+
 app.use(ensureAuthenticated);
 
 app.get('/userInfo', function (req, res) {
   var user = req.user;
   res.send(user);
 });
-
-app.use('/prompts', prompts);
-app.use('/progress', progress);
-app.use('/flowers', flowers);
 
 app.get('/admin', function (req, res) {
   res.sendFile(path.join(__dirname, 'public/views/admin.html'));
@@ -77,6 +81,10 @@ app.get('/admin', function (req, res) {
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'public/views/index.html'));
 });
+
+app.use('/prompts', prompts);
+app.use('/progress', progress);
+app.use('/flowers', flowers);
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {

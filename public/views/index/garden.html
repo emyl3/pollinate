@@ -4,6 +4,7 @@
   <div ng-repeat="flower in gCtrl.flowers">
     <img ng-src="{{flower.url}}"/>
     <p>Count: {{flower.count}}</p>
+    <button ng-value="{{flower.id}}" ng-click="{{gCtrl.openModal(flower.id)}}"
   </div>
     <label class="btn btn-primary" ng-model="bigData.breakfast" btn-checkbox>
       Breakfast

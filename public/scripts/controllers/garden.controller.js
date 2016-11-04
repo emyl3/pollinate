@@ -10,4 +10,17 @@ function GardenController(userData, flower) {
       ctrl.flowers = response;
     });
   });
+
+  ctrl.openModal = function (flowerId) {
+    console.log('flower id', flowerId);
+    var modalInstance = $uibModal.open({
+      templateUrl: 'views/partials/sendFlowerModal.html',
+      controller: 'SendFlowerModalController as sCtrl',
+      resolve: {
+        flowerId: function () {
+          return ctrl.flowerId;
+        },
+      },
+    });
+  };
 }
