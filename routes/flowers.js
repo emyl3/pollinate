@@ -119,4 +119,31 @@ router.post('/', function (req, res) {
   });
 });
 
+router.delete('/user', function (req, res) {
+  pool.connect(function (err, client, done) {
+    try {
+      if (err) {
+        console.log('Error connecting to the database', err);
+        res.sendStatus(500);
+        return;
+      }
+
+      client.query('DELETE FROM user_flowers WHERE flower_id = $1 AND user_id = $2 LIMIT 1;',
+        [req.body.flowerId, req.body.userId],
+        function (err, result) {
+          if (err) {
+            console.log('Error querying the database', err);
+            res.sendStatus(500);
+            return;
+          }
+
+          console.log('Got rows from the database: ', result.rows);
+          res.send(result.rows);
+        });
+    } finally {
+      done();
+    }
+  });
+});
+
 module.exports = router;

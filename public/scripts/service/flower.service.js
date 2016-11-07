@@ -36,6 +36,17 @@ function FlowerService($http) {
     });
   }
 
+  function deleteUsedFlower(userId, flowerId) {
+    return $http.delete('/flowers/user', {
+      params: {
+        userId: userId,
+        flowerId: flowerId,
+      },
+    }).then(function (response) {
+      return response;
+    });
+  }
+
 
 
   return {
@@ -43,5 +54,6 @@ function FlowerService($http) {
     getReward: getReward,
     postFlower: postFlower,
     getUserFlowers: getUserFlowers,
+    deleteUsedFlower: deleteUsedFlower,
   };
 }

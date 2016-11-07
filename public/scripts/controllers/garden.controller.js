@@ -11,7 +11,7 @@ function GardenController(userData, flower, $uibModal) {
     });
   });
 
-  ctrl.openModal = function (flowerId) {
+  ctrl.openModal = function (flowerId, flowerUrl) {
     console.log('flower id', flowerId);
     var modalInstance = $uibModal.open({
       templateUrl: 'views/partials/sendFlowerModal.html',
@@ -19,6 +19,9 @@ function GardenController(userData, flower, $uibModal) {
       resolve: {
         flowerId: function () {
           return flowerId;
+        },
+        flowerUrl: function () {
+          return flowerUrl;
         },
       },
     });

@@ -13,11 +13,12 @@ router.post('/', function(req, res){
   var message = req.body.message;
   console.log('posting');
 
-  return client.sendMessage({
+  client.sendMessage({
     to: '+1' + phone,
     from: '+12012920629',
     body: message + ' Replies to this number will not work.',
   });
+  res.sendStatus(200);
 });
 
 module.exports = router;

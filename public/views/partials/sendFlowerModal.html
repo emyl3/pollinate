@@ -10,7 +10,7 @@
   </div>
 
   <div class="form-group">
-    <img ng-src="{{sCtrl.url}}"/>
+    <img ng-value="sCtrl.flowerId" ng-src="{{sCtrl.url}}"/>
   </div>
 
   <div class="form-group">
@@ -22,6 +22,6 @@
 
 
 <div class="modal-footer">
-  <button type="submit" class="btn btn-info" ng-click="sCtrl.submitForm(sCtrl.telephone, sCtrl.message)">Send</button>
+  <button type="submit" class="btn btn-info" ng-value="sCtrl.userId"  ng-click="sCtrl.submitForm(sCtrl.telephone, sCtrl.message, sCtrl.userId, sCtrl.flowerId)">Send</button>
   <button class="btn btn-info" ng-click="sCtrl.close()">Cancel</button>
 </div>

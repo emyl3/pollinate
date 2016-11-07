@@ -2,6 +2,6 @@
 
   <div ng-repeat="flower in gCtrl.flowers">
     <img ng-src="{{flower.url}}"/>
-    <p>Count: {{flower.count}}</p>
-    <button class="btn-group btn" ng-value="flower.flower_id" ng-click="gCtrl.openModal(flower.flower_id)">Send to a Friend</button>
+    <p ng-value="flower.url">Count: {{flower.count}}</p>
+    <button class="btn-group btn" ng-value="flower.flower_id" ng-click="gCtrl.openModal(flower.flower_id, flower.url)">Send to a Friend</button>
   </div>
