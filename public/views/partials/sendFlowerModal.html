@@ -5,19 +5,23 @@
   <form>
   <div class="form-group">
     <label for="telephone">Telephone Number</label>
-    <input type="tel" class="form-control" aria-describedby="emailHelp" placeholder="1234567890" ng-model="gCtrl.telephone">
+    <input type="tel" class="form-control" aria-describedby="emailHelp" placeholder="1234567890" ng-model="sCtrl.telephone">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
 
   <div class="form-group">
+    <img ng-src="{{sCtrl.url}}"/>
+  </div>
+
+  <div class="form-group">
     <label for="exampleTextarea" placeholder="Your affirmation here">Example textarea</label>
-    <textarea class="form-control" rows="3" ng-model="gCtrl.message"></textarea>
+    <textarea class="form-control" rows="3" ng-model="sCtrl.message"></textarea>
   </div>
 </form>
 </div>
 
 
 <div class="modal-footer">
-  <button type="submit" class="btn btn-info" ng-click="sCtrl.submitForm(gCtrl.telephone, gCtrl.message)">Send</button>
+  <button type="submit" class="btn btn-info" ng-click="sCtrl.submitForm(sCtrl.telephone, sCtrl.message)">Send</button>
   <button class="btn btn-info" ng-click="sCtrl.close()">Cancel</button>
 </div>
