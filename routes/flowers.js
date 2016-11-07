@@ -127,9 +127,8 @@ router.delete('/user', function (req, res) {
         res.sendStatus(500);
         return;
       }
-
-      client.query('DELETE FROM user_flowers WHERE flower_id = $1 AND user_id = $2 LIMIT 1;',
-        [req.body.flowerId, req.body.userId],
+      client.query('DELETE FROM user_flowers WHERE id IN (SELECT id FROM user_flowers WHERE flower_id = $1 AND user_id = $2 ORDER BY id FETCH FIRST 1 rows ONLY);',
+        [req.query.flowerId, req.query.userId],
         function (err, result) {
           if (err) {
             console.log('Error querying the database', err);

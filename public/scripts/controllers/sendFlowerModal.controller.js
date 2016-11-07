@@ -18,10 +18,11 @@ function SendFlowerModalController($uibModalInstance, flower, flowerId, flowerUr
   ctrl.submitForm = function (phone, message, userId, flowerId) {
     var data = { phone: phone, message: message };
     $http.post('/twilioroute', data).then(function (response) {
+      console.log(userId);
+      console.log(flowerId);
       flower.deleteUsedFlower(userId, flowerId).then(function (response) {
-        flower.getUserFlowers(userId);
-              ctrl.close();
-      })
+        ctrl.close();
+      });
     });
 
     console.log(phone);
@@ -29,6 +30,7 @@ function SendFlowerModalController($uibModalInstance, flower, flowerId, flowerUr
   };
 
   ctrl.close = function () {
+    location.reload();
     $uibModalInstance.close();
   };
 }
