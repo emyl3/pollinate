@@ -16,7 +16,7 @@ function SendFlowerModalController($uibModalInstance, flower, flowerId, flowerUr
   })
 
   ctrl.submitForm = function (phone, message, userId, flowerId) {
-    var data = { phone: phone, message: message };
+    var data = { phone: phone, message: message, flowerUrl: flowerUrl };
     $http.post('/twilioroute', data).then(function (response) {
       console.log(userId);
       console.log(flowerId);
