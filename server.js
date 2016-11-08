@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const passport = require('passport');
 const session = require('express-session');
-const twilio = require('twilio');
+const SECRET_KEY = process.env.SECRET_KEY;
 
 const connection = require('./database/connection');
 const login = require('./routes/login');
@@ -22,7 +22,7 @@ auth.setup();
 
 const user = require('./models/user');
 const sessionConfig = {
-  secret: 'super secret key goes here', //TODO this should be read from ENV
+  secret: SECRET_KEY, //TODO this should be read from ENV
   key: 'user',
   resave: true,
   saveUninitialized: true,
