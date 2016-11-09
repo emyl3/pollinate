@@ -10,6 +10,16 @@
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
 
+  <uib-accordion>
+    <div uib-accordion-group class="panel-danger" heading="Verify User Before Texting" is-open="sCtrl.isCollapsed">
+      <div uib-collapse="!sCtrl.isCollapsed">
+        <a>{{sCtrl.code}}</a>
+        <input class="form-control" ng-model="sCtrl.phone">
+        <button type="submit" class="btn btn-primary" ng-click="sCtrl.submitRegistration(sCtrl.phone)">sign up for texts</button>
+      </div>
+    </div>
+  </uib-accordion>
+
   <div class="form-group">
     <img ng-value="sCtrl.flowerId" ng-src="{{sCtrl.url}}"/>
   </div>
@@ -19,11 +29,9 @@
     <textarea class="form-control" rows="3" ng-model="sCtrl.message"></textarea>
   </div>
   </form>
-
 </div>
-
 
 <div class="modal-footer">
   <button type="submit" class="btn btn-info" ng-value="sCtrl.userId"  ng-click="sCtrl.submitForm(sCtrl.telephone, sCtrl.message, sCtrl.userId, sCtrl.flowerId, sCtrl.flowerUrl)">Send</button>
-  <button class="btn btn-info" ng-click="sCtrl.close()">Cancel</button>
+  <button class="btn btn-danger" ng-click="sCtrl.close()">Cancel</button>
 </div>

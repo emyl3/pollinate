@@ -4,6 +4,7 @@ function SendFlowerModalController($uibModalInstance, flower, flowerId, flowerUr
   var ctrl = this;
   ctrl.flowerId = flowerId;
   ctrl.flowerUrl = flowerUrl;
+  ctrl.isCollapsed = false;
 
   flower.getReward(flowerId).then(function (response) {
     console.log('response', response);
@@ -27,6 +28,21 @@ function SendFlowerModalController($uibModalInstance, flower, flowerId, flowerUr
 
     console.log(phone);
     console.log(message);
+  };
+
+  ctrl.submitRegistration = function (phone) {
+    var data = { phone: '+1' + phone };
+    $http.post('/twilioroute/signup', data).then(function (response) {
+      console.log(response);
+      if (response.data.status === 400) {
+        ctrl.code = response.data.message;
+        return;
+      } else if (response.data.code === 400) {
+        ctrl.code = response.data.message;
+      } else {
+        ctrl.code = response.data.validation_code;
+      }
+    });
   };
 
   ctrl.close = function () {
