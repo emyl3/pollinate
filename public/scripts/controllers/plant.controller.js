@@ -23,10 +23,12 @@ function PlantController(prompt, userData) {
     var mm = entryDate.getMonth() + 1;
     var yyyy = entryDate.getFullYear();
     var date = mm + '/' + dd + '/' + yyyy;
+    var entrydate = yyyy + '-' + mm + '-' + dd;
 
     var value = {
       user: user,
       id: id,
+      entrydate: entrydate,
       response: 'On ' + date + ', I ' + statement + ' ' + response,
     };
 

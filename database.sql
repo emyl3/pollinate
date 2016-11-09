@@ -28,6 +28,7 @@ CREATE TABLE user_responses (
     id SERIAL PRIMARY KEY,
     user_id integer REFERENCES users,
     prompt_id integer REFERENCES prompts,
+    entrydate date NOT NULL, 
     response varchar(120) NOT NULL,
     used boolean DEFAULT false
 );
