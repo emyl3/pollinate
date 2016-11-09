@@ -13,7 +13,7 @@ function SendFlowerModalController($uibModalInstance, flower, flowerId, flowerUr
 
   userData.getUserId().then(function (response) {
     ctrl.userId = response;
-  })
+  });
 
   ctrl.submitForm = function (phone, message, userId, flowerId) {
     var data = { phone: phone, message: message, flowerUrl: flowerUrl };
