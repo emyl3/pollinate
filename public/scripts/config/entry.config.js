@@ -8,6 +8,9 @@ app.config(function ($routeProvider, $locationProvider) {
           }).when('/register', {
             templateUrl: 'views/entry/register.html',
             controller: 'RegisterController as rCtrl',
+          }).when('/txtsignup', {
+            templateUrl: 'views/entry/txtsignup.html',
+            controller: 'TextController as tCtrl',
           }).otherwise({
             redirectTo: '/',
           });

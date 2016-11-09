@@ -55,12 +55,18 @@ app.get('/login', function (req, res) {
   res.sendFile(path.join(__dirname, 'public/views/entry.html'));
 });
 
+app.get('/txtsignup', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public/views/entry.html'));
+});
+
+app.use('/twilioroute', twilioroute);
+
 app.use(ensureAuthenticated);
 
 app.use('/prompts', prompts);
 app.use('/progress', progress);
 app.use('/flowers', flowers);
-app.use('/twilioroute', twilioroute);
+// app.use('/twilioroute', twilioroute);
 
 app.get('/userInfo', function (req, res) {
   var user = req.user;
