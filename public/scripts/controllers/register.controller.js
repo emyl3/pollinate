@@ -2,20 +2,20 @@ angular.module('pollenApp')
 .controller('RegisterController', RegisterController);
 
 function RegisterController($http, $location) {
-  console.log('RegisterController loaded');
   var ctrl = this;
 
   ctrl.register = function () {
-    console.log('registering new user');
     $http.post('/register', {
       username: ctrl.username,
       password: ctrl.password,
     }).then(function () {
       ctrl.success = true;
+      ctrl.error = false;
       ctrl.status = 'alert alert-success';
     }, function (error) {
 
       ctrl.error = true;
+      ctrl.success = false;
       ctrl.status = 'alert alert-danger';
     });
   };

@@ -53,7 +53,6 @@ function create(username, password) {
   return new Promise(function (resolve, reject) {
     bcrypt.hash(password, SALT_ROUNDS, function (err, hash) {
       if (err) {
-        console.log('Error hashing password', err);
         return reject(err);
       }
 
@@ -83,7 +82,6 @@ function comparePassword(user, passwordToCompare) {
   return new Promise(function (resolve) {
     bcrypt.compare(passwordToCompare, user.password, function (err, match) {
       if (err) {
-        console.log('Error comparing password', err);
         return resolve(false);
       }
 

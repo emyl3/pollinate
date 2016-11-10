@@ -2,7 +2,6 @@ app.controller('TextController', TextController);
 
 function TextController($http) {
   var ctrl = this;
-  console.log('textcontroller loaded');
 
   ctrl.submit = function (phone) {
     var data = { phone: '+1' + phone };

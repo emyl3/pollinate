@@ -5,14 +5,11 @@ function GardenController(userData, flower, $uibModal) {
 
   userData.getUserId().then(function (response) {
     flower.getUserFlowers(response).then(function (response) {
-      console.log(response);
-
       ctrl.flowers = response;
     });
   });
 
   ctrl.openModal = function (flowerId, flowerUrl) {
-    console.log('flower id', flowerId);
     var modalInstance = $uibModal.open({
       templateUrl: 'views/partials/sendFlowerModal.html',
       controller: 'SendFlowerModalController as sCtrl',
@@ -20,6 +17,7 @@ function GardenController(userData, flower, $uibModal) {
         flowerId: function () {
           return flowerId;
         },
+
         flowerUrl: function () {
           return flowerUrl;
         },

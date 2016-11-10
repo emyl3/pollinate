@@ -42,7 +42,6 @@ function findAndComparePassword(username, password, done) {
     });
 
   }).catch(function (err) {
-    console.log('Error finding user', err);
     done(err);
   });
 }
