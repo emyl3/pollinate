@@ -22,12 +22,11 @@ function LoginController($http, $location) {
           window.location.href = '/home';
         }
       }, function (error) {
-        ctrl.error = true;
 
+        ctrl.error = true;
         ctrl.closeAlert = function () {
           ctrl.error = false;
-        }
-        console.log('error logging in', error);
+        };
       });
     });
   };

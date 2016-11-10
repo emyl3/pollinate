@@ -5,7 +5,7 @@ function RegisterController($http, $location) {
   console.log('RegisterController loaded');
   var ctrl = this;
 
-  ctrl.register = function() {
+  ctrl.register = function () {
     console.log('registering new user');
     $http.post('/register', {
       username: ctrl.username,
@@ -13,7 +13,11 @@ function RegisterController($http, $location) {
     }).then(function () {
       $location.path('/login');
     }, function (error) {
-      console.log('error registering', error);
+
+      ctrl.error = true;
+      ctrl.closeAlert = function () {
+        ctrl.error = false;
+      };
     });
   };
 }
