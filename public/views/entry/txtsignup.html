@@ -1,7 +1,36 @@
-<nav>
-  <a href="/register">register</a>
-  <a href="/login">login</a>
-</nav>
-<p>{{tCtrl.code}}</p>
-<input class="form-control" ng-model="tCtrl.phone">
-<button type="submit" class="btn btn-primary" ng-click="tCtrl.submit(tCtrl.phone)">sign up for texts</button>
+<form class="form-horizontal col-xs-12 col-md-6 col-md-offset-3 well">
+  <div class="form-group row">
+    <div class="col-xs-12 col-md-12 header">
+      <h1>Verify Phone Number</h1>
+    </div>
+  </div>
+
+  <div uib-alert class="{{tCtrl.alertType}}" ng-show="tCtrl.error" close="tCtrl.close()">{{tCtrl.error}}</div>
+  <div uib-alert class="{{tCtrl.alertType}}" ng-show="tCtrl.success" close="tCtrl.close()">Please enter the following verification code: <strong>{{tCtrl.success}}</strong></br> when prompted by a phone call from 415-723-4000.</div>
+
+  <div class="form-group row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <input type="tel" class="form-control" aria-describedby="verifyHelp" pattern="\d{3}[\-]\d{3}[\-]\d{4}" placeholder="123-456-7890" ng-model="tCtrl.verificationPhone" required>
+      <small id="verifyHelp" class="form-text text-muted">Only U.S. phone numbers accepted.</small>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-xs-12 col-md-4 col-md-offset-4 button">
+      <button type="submit" class="btn btn-primary" ng-click="tCtrl.submit(tCtrl.verificationPhone)">receive texts</button>
+    </div>
+  </div>
+
+  <div class="form-group row ">
+    <div class="col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2 divider"></div>
+  </div>
+
+  <div class="form-group row help">
+    <div class="col-xs-12 col-md-12">
+      <p>already registered? <a class="help" href="/login">login</a>!</p>
+    </div>
+    <div class="col-xs-12 col-md-12">
+      <p>need to register? <a class="help" href="/register">sign up</a>!</p>
+    </div>
+  </div>
+</form>

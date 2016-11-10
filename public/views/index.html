@@ -19,7 +19,7 @@
     <script src="scripts/service/user.service.js"></script>
     <script src="scripts/service/progress.service.js"></script>
     <script src="scripts/service/flower.service.js"></script>
-    
+
     <script src="scripts/controllers/nav.controller.js"></script>
     <script src="scripts/controllers/plant.controller.js"></script>
     <script src="scripts/controllers/grow.controller.js"></script>
@@ -29,15 +29,27 @@
 
     <link rel="stylesheet" href="vendors/bootstrap.min.css" media="screen" title="bootstrap">
     <link rel="stylesheet" href="vendors/ui-bootstrap-csp.css" media="screen" title="bootstrap">
+    <link href="https://fonts.googleapis.com/css?family=Itim|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css" />
     <base href="/user">
   </head>
 
   <body>
     <div ng-app="pollenApp" ng-controller="NavController as navCtrl" class="container-fluid">
       <div class="row">
-        <div class="col-md-12 col-sm-12">
-            <header><h1>pollinate</h1></header>
+        <div class="col-xs-12 col-md-12 logo">
+          <img class src="assets/pollinatelogo-02.svg" alt="Pollinate Logo"/>
         </div>
+      </div>
+
+      <div class="row">
+        <nav class="col-xs-12 col-md-6 col-md-offset-3 navbar">
+          <button type="button" class="btn btn-default navbar-btn">Sign in</button>
+          <button type="button" class="btn btn-default navbar-btn">Sign in</button>
+          <button type="button" class="btn btn-default navbar-btn">Sign in</button>
+        </nav>
+
+
       </div>
 
       <nav class="row">

@@ -1,24 +1,43 @@
-<nav>
-  <a href="/login">login</a>
-  <a href="/txtsignup">Receive Texts</a>
-</nav>
-
 <form class="form-horizontal col-xs-12 col-md-6 col-md-offset-3 well" ng-submit="rCtrl.register()">
-  <div uib-alert class="{{rCtrl.status}}" ng-show="rCtrl.error" close="rCtrl.close()"><strong>Invalid username and/or password.</strong> Please try again.</div>
-  <div uib-alert class="{{rCtrl.status}}" ng-show="rCtrl.success" close="rCtrl.close()"><strong>Success!</strong> Please <a href='/login'>login</a>.</div>
   <div class="form-group row">
-    <label class="control-label col-xs-offset-1 col-xs-2">Username:</label>
-    <div class="col-xs-8">
+    <div class="col-xs-12 col-md-12 header">
+      <h1>Register</h1>
+    </div>
+  </div>
+
+  <div uib-alert class="{{rCtrl.status}}" ng-show="rCtrl.error" close="rCtrl.close()"><strong>Invalid username and/or password.</strong> Please try again.</div>
+  <div uib-alert class="{{rCtrl.status}}" ng-show="rCtrl.success" close="rCtrl.close()"><strong>Success!</strong> Please <a class="help" href='/login'>login</a>.</div>
+
+  <div class="form-group row">
+    <label class="control-label col-xs-12 col-md-2 col-md-offset-1">username</label>
+    <div class="col-xs-12 col-md-8">
       <input class="form-control" type="text" ng-model="rCtrl.username" required>
     </div>
   </div>
+
   <div class="form-group row">
-    <label class="control-label col-xs-offset-1 col-xs-2">Password:</label>
-    <div class="col-xs-8">
+    <label class="control-label col-xs-12 col-md-2 col-md-offset-1">password</label>
+    <div class="col-xs-12 col-md-8">
       <input class="form-control" type="password" ng-model="rCtrl.password" required>
     </div>
   </div>
-  <div class="col-xs-offset-3 col-xs-10">
-    <button type="submit" class="btn btn-primary">Register</button>
+
+  <div class="form-group row">
+    <div class="col-xs-12 col-md-4 col-md-offset-4 button">
+      <button type="submit" class="btn btn-primary login">register</button>
+    </div>
+  </div>
+
+  <div class="form-group row ">
+    <div class="col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2 divider"></div>
+  </div>
+
+  <div class="form-group row help">
+    <div class="col-xs-12 col-md-12">
+      <p>already registered? <a class="help" href="/login">login</a>!</p>
+    </div>
+    <div class="col-xs-12 col-md-12">
+      <p>to receive text messages, <a class="help" href="/txtsignup">verify your number</a></p>
+    </div>
   </div>
 </form>

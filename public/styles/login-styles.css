@@ -1,0 +1,60 @@
+body {
+  background-color: #f3f1ec;
+  font-family: 'Open Sans', sans-serif;
+  color: #2D2609;
+}
+
+.col-xs-12.col-md-12.logo {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.col-xs-12.col-md-12.logo > img {
+  width: 40%;
+  min-width: 350px;
+}
+
+.well {
+  background: #99e5c8;
+  margin-top: 2%;
+}
+
+.col-xs-12.col-md-12.header {
+  font-family: 'Itim', cursive;
+  text-align: center;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #80281a;
+    border-color: #601e14;
+    margin-top: 5%;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #b37e76;
+    border-color: #cca9a3;
+}
+
+.col-xs-12.col-md-4.col-md-offset-4.button {
+  text-align: center;
+}
+
+a.help {
+  color: #601e14;
+}
+
+.form-group.row.help {
+  font-size: .8em;
+  text-align: center;
+}
+
+.col-xs-8.col-xs-offset-2.col-md-8.col-md-offset-2.divider {
+  margin-top: 5%;
+  border: 1px solid #601e14;
+}
+
+uib-alert {
+  font-family: 'Open Sans', sans-serif;
+}
