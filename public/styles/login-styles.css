@@ -25,14 +25,14 @@ body {
 }
 
 .btn-primary {
-    color: #fff;
+    color: #ffffff;
     background-color: #80281a;
     border-color: #601e14;
     margin-top: 5%;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
-    color: #fff;
+.btn-primary:hover, .btn-primary:focus, .btn-primary.active, .btn-primary:active, .btn-primary:active:focus, .open>.dropdown-toggle.btn-primary {
+    color: #ffffff;
     background-color: #b37e76;
     border-color: #cca9a3;
 }

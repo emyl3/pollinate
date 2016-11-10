@@ -1,0 +1,35 @@
+body {
+  background-color: #f3f1ec;
+  font-family: 'Open Sans', sans-serif;
+  color: #2D2609;
+}
+
+.col-xs-12.col-md-12.logo {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.col-xs-12.col-md-12.logo > img {
+  width: 40%;
+  min-width: 350px;
+}
+
+.navbar-default {
+  background: #99e5c8;
+  text-align: center;
+}
+
+.navbar-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.5em;
+  font-family: 'Itim', cursive;
+}
+
+.navbar-btn:hover, .navbar-btn:focus, .navbar-btn.active, .navbar-btn:active, .navbar-btn:active:focus, .open>.dropdown-toggle.navbar-btn {
+    color: #ffffff;
+    background-color: #601e14;
+    border-color: #cca9a3;
+    background: #601e14;
+    box-shadow: none;
+}

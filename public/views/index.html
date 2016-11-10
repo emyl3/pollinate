@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="vendors/bootstrap.min.css" media="screen" title="bootstrap">
     <link rel="stylesheet" href="vendors/ui-bootstrap-csp.css" media="screen" title="bootstrap">
     <link href="https://fonts.googleapis.com/css?family=Itim|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/index-styles.css"/>
     <base href="/user">
   </head>
 
@@ -43,34 +43,14 @@
       </div>
 
       <div class="row">
-        <nav class="col-xs-12 col-md-6 col-md-offset-3 navbar">
-          <button type="button" class="btn btn-default navbar-btn">Sign in</button>
-          <button type="button" class="btn btn-default navbar-btn">Sign in</button>
-          <button type="button" class="btn btn-default navbar-btn">Sign in</button>
+        <nav class="col-xs-12 col-md-6 col-md-offset-3 navbar navbar-default">
+          <a href="/plant"><button type="button" class="btn btn-default navbar-btn">plant</button></a>
+          <a href="/grow"><button type="button" class="btn btn-default navbar-btn">grow</button></a>
+          <a href="/garden"><button type="button" class="btn btn-default navbar-btn">garden</button></a>
+          <a href="/"><button type="button" class="btn btn-default navbar-btn">nutrients</button></a>
         </nav>
-
-
       </div>
-
-      <nav class="row">
-        <div class="col-md-3"></div>
-
-        <div class="col-md-2 col-xs-12">
-          <a href="/plant">Plant</a>
-        </div>
-
-        <div class="col-md-2 col-xs-12">
-          <a href="/grow">Grow</a>
-        </div>
-
-        <div class="col-md-2 col-xs-12">
-          <a href="/garden">Garden</a>
-        </div>
-
-        <div class="col-md-3"></div>
-      </nav>
-
-      <div class="container-fluid" ng-view></div>
+      <ng-view></ng-view>
     </div>
   </body>
 </html>
