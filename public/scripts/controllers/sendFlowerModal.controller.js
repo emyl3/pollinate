@@ -6,6 +6,10 @@ function SendFlowerModalController($uibModalInstance, flower, flowerId, flowerUr
   ctrl.flowerUrl = flowerUrl;
   ctrl.isCollapsed = false;
 
+  ctrl.open = function () {
+    ctrl.isCollapsed = !ctrl.isCollapsed;
+  };
+
   flower.getReward(flowerId).then(function (response) {
     console.log('response', response);
     ctrl.url = response[0].url;
@@ -34,15 +38,24 @@ function SendFlowerModalController($uibModalInstance, flower, flowerId, flowerUr
     var data = { phone: '+1' + phone };
     $http.post('/twilioroute/signup', data).then(function (response) {
       console.log(response);
-      if (response.data.status === 400) {
-        ctrl.code = response.data.message;
+      if (response.data.code === 21450) {
+        ctrl.alertType = 'alert alert-info';
+        ctrl.alertCode = 'This phone number is already verified and ready to receive affirmations.';
         return;
       } else if (response.data.code === 400) {
-        ctrl.code = response.data.message;
+        ctrl.alertType = 'alert alert-danger';
+        ctrl.alertCode = 'Please enter a valid phone number in the following format XXX-XXX-XXXX.';
       } else {
-        ctrl.code = response.data.validation_code;
+        ctrl.alertType = 'alert alert-success';
+        ctrl.alertVerify = response.data.validation_code;
+        return;
       }
     });
+  };
+
+  ctrl.closeAlert = function () {
+    ctrl.alertCode = false;
+    ctrl.alertVerify = false;
   };
 
   ctrl.close = function () {
