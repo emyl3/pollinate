@@ -66,7 +66,6 @@ app.use(ensureAuthenticated);
 app.use('/prompts', prompts);
 app.use('/progress', progress);
 app.use('/flowers', flowers);
-// app.use('/twilioroute', twilioroute);
 
 app.get('/userInfo', function (req, res) {
   var user = req.user;
