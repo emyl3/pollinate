@@ -9,7 +9,6 @@ const TWILIO_AUTH = process.env.TWILIO_AUTH_TOKEN;
 const TWILIO_NUMBER = process.env.TWILIO_NUMBER;
 var client = twilio(TWILIO_ACC, TWILIO_AUTH);
 
-
 router.post('/signup', function (req, res) {
   var phone = req.body.phone;
 
@@ -34,9 +33,15 @@ router.post('/', function (req, res) {
     from: '+' + TWILIO_NUMBER,
     body: message + ' Replies to this number will not work.',
     MediaUrl: url,
+  }, function (error, message) {
+    if (error) {
+      console.log('error', error);
+      res.send(error);
+    } else {
+      console.log('message', message);
+      res.send(message);
+    }
   });
-
-  res.sendStatus(200);
 });
 
 module.exports = router;

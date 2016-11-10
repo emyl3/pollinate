@@ -5,6 +5,9 @@ function SendFlowerModalController($uibModalInstance, flower, flowerId, flowerUr
   ctrl.flowerId = flowerId;
   ctrl.flowerUrl = flowerUrl;
   ctrl.isCollapsed = false;
+  ctrl.panelStatus = 'panel-warning';
+  ctrl.formAlert = 'Phone Number to Receive Affirmation';
+  ctrl.panelMessage = 'Phone Number to Verify';
 
   ctrl.open = function () {
     ctrl.isCollapsed = !ctrl.isCollapsed;
@@ -21,17 +24,25 @@ function SendFlowerModalController($uibModalInstance, flower, flowerId, flowerUr
   });
 
   ctrl.submitForm = function (phone, message, userId, flowerId) {
-    var data = { phone: phone, message: message, flowerUrl: flowerUrl };
-    $http.post('/twilioroute', data).then(function (response) {
-      console.log(userId);
-      console.log(flowerId);
-      flower.deleteUsedFlower(userId, flowerId).then(function (response) {
-        ctrl.close();
+    if (phone === undefined) {
+      ctrl.formAlertType = 'alert alert-danger';
+      ctrl.formAlert = 'Please enter a verified, valid phone number.';
+      return;
+    } else {
+      var data = { phone: phone, message: message, flowerUrl: flowerUrl };
+      $http.post('/twilioroute', data).then(function (response) {
+        console.log(response);
+        if (response.data.status === 400) {
+          ctrl.isCollapsed = !ctrl.isCollapsed;
+          ctrl.panelStatus = 'panel-danger';
+          ctrl.panelMessage = 'This phone number is not verified. Please verify the number.';
+        } else {
+          flower.deleteUsedFlower(userId, flowerId).then(function (response) {
+            ctrl.closeModal();
+          });
+        }
       });
-    });
-
-    console.log(phone);
-    console.log(message);
+    }
   };
 
   ctrl.submitRegistration = function (phone) {
@@ -53,12 +64,19 @@ function SendFlowerModalController($uibModalInstance, flower, flowerId, flowerUr
     });
   };
 
-  ctrl.closeAlert = function () {
+  ctrl.closeAlertCode = function () {
     ctrl.alertCode = false;
+  };
+
+  ctrl.closeVerify = function () {
     ctrl.alertVerify = false;
   };
 
-  ctrl.close = function () {
+  ctrl.closeFormAlert = function () {
+    ctrl.formAlert = false;
+  };
+
+  ctrl.closeModal = function () {
     location.reload();
     $uibModalInstance.close();
   };

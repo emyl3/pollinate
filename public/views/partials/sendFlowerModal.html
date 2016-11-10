@@ -6,11 +6,11 @@
   <form>
     <div class="form-group">
       <uib-accordion>
-        <div uib-accordion-group class="panel-warning" heading="Verify Destination Phone Number" is-open="sCtrl.isCollapsed">
+        <div uib-accordion-group class="{{sCtrl.panelStatus}}" heading="Verify Destination Phone Number" is-open="sCtrl.isCollapsed">
           <div uib-collapse="!sCtrl.isCollapsed">
-            <div uib-alert class="{{sCtrl.alertType}}" ng-show="sCtrl.alertCode" dismiss-on-timeout="10000" close="sCtrl.closeAlert()">{{sCtrl.alertCode}}</div>
-            <div uib-alert class="{{sCtrl.alertType}}" ng-show="sCtrl.alertVerify" close="sCtrl.closeAlert()">Please enter the following verification code: <strong>{{sCtrl.alertVerify}}</strong></br> when prompted by a phone call from 415-723-4000.</div>
-            <label for="telephone">Phone Number to Verify</label>
+            <div uib-alert class="{{sCtrl.alertType}}" ng-show="sCtrl.alertCode" dismiss-on-timeout="10000" close="sCtrl.closeAlertCode()">{{sCtrl.alertCode}}</div>
+            <div uib-alert class="{{sCtrl.alertType}}" ng-show="sCtrl.alertVerify" dismiss-on-timeout="30000" close="sCtrl.closeVerify()">Please enter the following verification code: <strong>{{sCtrl.alertVerify}}</strong></br> when prompted by a phone call from 415-723-4000.</div>
+            <label for="telephone">{{sCtrl.panelMessage}}</label>
             <input type="tel" class="form-control" aria-describedby="verifyHelp" pattern="\d{3}[\-]\d{3}[\-]\d{4}" placeholder="123-456-7890" ng-model="sCtrl.verificationPhone" required>
             <small id="verifyHelp" class="form-text text-muted">Only U.S. phone numbers accepted.</small>
             <div>
@@ -23,10 +23,12 @@
   </form>
 
   <form>
-  <div class="form-group">
-    <label for="telephone">Phone Number to Send Affirmation</label>
-    <input type="tel" class="form-control" aria-describedby="telHelp" pattern="\d{3}[\-]\d{3}[\-]\d{4}" placeholder="123-456-7890" ng-model="sCtrl.destinationPhone" required>
-    <small id="telHelp" class="form-text text-muted">Only U.S. phone numbers accepted. Please be sure to <a ng-click="sCtrl.open()"><strong>verify the destination phone number</strong></a> beforehand.</small>
+  <div uib-alert class="{{sCtrl.formAlertType}} form-group">
+    <div>
+      <label for="telephone">{{sCtrl.formAlert}}</label>
+      <input type="tel" class="form-control" aria-describedby="telHelp" pattern="\d{3}[\-]\d{3}[\-]\d{4}" placeholder="123-456-7890" ng-model="sCtrl.destinationPhone" required>
+      <small id="telHelp" class="form-text text-muted">Only U.S. phone numbers accepted. Please be sure to <a ng-click="sCtrl.open()"><strong>verify the destination phone number</strong></a> beforehand.</small>
+    </div>
   </div>
 
   <div class="form-group">
@@ -34,7 +36,7 @@
   </div>
 
   <div class="form-group">
-    <label for="AffirmationMessage">Affirmation to Send</label>
+    <label for="AffirmationMessage">Affirmation to Send:</label>
     <textarea class="form-control" maxlength="160" placeholder="Type affirming message you want to send. Limited to 160 characters." rows="2" ng-model="sCtrl.message"></textarea>
   </div>
   </form>
@@ -42,5 +44,5 @@
 
 <div class="modal-footer">
   <button type="submit" class="btn btn-info" ng-value="sCtrl.userId"  ng-click="sCtrl.submitForm(sCtrl.destinationPhone, sCtrl.message, sCtrl.userId, sCtrl.flowerId, sCtrl.flowerUrl)">Send</button>
-  <button class="btn btn-danger" ng-click="sCtrl.close()">Cancel</button>
+  <button class="btn btn-danger" ng-click="sCtrl.closeModal()">Cancel</button>
 </div>
