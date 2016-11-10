@@ -1,7 +1,5 @@
-<h1>hi - garden</h1>
-
-  <div ng-repeat="flower in gCtrl.flowers">
-    <img ng-src="{{flower.url}}" ng-click="gCtrl.openModal(flower.flower_id, flower.url)"/>
-    <p ng-value="flower.url">Count: {{flower.count}}</p>
-    <button class="btn-group btn" ng-value="flower.flower_id" ng-click="gCtrl.openModal(flower.flower_id, flower.url)">Send to a Friend</button>
-  </div>
+<div ng-repeat="flower in gCtrl.flowers">
+  <img ng-src="{{flower.url}}" ng-click="gCtrl.openModal(flower.flower_id, flower.url)"/>
+  <p ng-value="flower.url">Count: {{flower.count}}</p>
+  <button class="btn-group btn" ng-value="flower.flower_id" ng-click="gCtrl.openModal(flower.flower_id, flower.url)">Send to a Friend</button>
+</div>

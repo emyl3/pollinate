@@ -11,13 +11,17 @@ function RegisterController($http, $location) {
       username: ctrl.username,
       password: ctrl.password,
     }).then(function () {
-      $location.path('/login');
+      ctrl.success = true;
+      ctrl.status = 'alert alert-success';
     }, function (error) {
 
       ctrl.error = true;
-      ctrl.closeAlert = function () {
-        ctrl.error = false;
-      };
+      ctrl.status = 'alert alert-danger';
     });
+  };
+
+  ctrl.close = function () {
+    ctrl.success = false;
+    ctrl.error = false;
   };
 }
