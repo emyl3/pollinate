@@ -11,6 +11,9 @@ app.config(function ($routeProvider, $locationProvider) {
           }).when('/plant', {
             templateUrl: 'views/index/plant.html',
             controller: 'PlantController as pCtrl',
+          }).when('/nutrients', {
+            templateUrl: 'views/index/nutrients.html',
+            controller: 'NutrientController as nCtrl',
           }).otherwise({
             redirectTo: '/home',
           });

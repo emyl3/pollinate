@@ -96,5 +96,5 @@ function ensureAuthenticated(req, res, next) {
 var port = process.env.PORT || 3000;
 var server = app.listen(port, function () {
   console.log('server listening for requests on port:', server.address().port);
-  console.log('press control+c to quit');
+  console.log('press CTRL + C to quit');
 });
