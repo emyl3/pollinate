@@ -27,9 +27,15 @@ body {
 }
 
 .navbar-btn:hover, .navbar-btn:focus, .navbar-btn.active, .navbar-btn:active, .navbar-btn:active:focus, .open>.dropdown-toggle.navbar-btn {
-    color: #ffffff;
-    background-color: #601e14;
-    border-color: #cca9a3;
-    background: #601e14;
-    box-shadow: none;
+  color: #ffffff;
+  background-color: #601e14;
+  border-color: #cca9a3;
+  background: #601e14;
+  box-shadow: none;
+}
+
+.col-xs-12.col-md-12.footer {
+  font: bold .75em 'Itim', 'cursive';
+  text-align: center;
+  margin-bottom: 5%;
 }

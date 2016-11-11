@@ -7,6 +7,7 @@ const path = require('path');
 const passport = require('passport');
 const session = require('express-session');
 const SECRET_KEY = process.env.SECRET_KEY;
+// const logout = require('express-passport-logout');
 
 const connection = require('./database/connection');
 const login = require('./routes/login');
@@ -66,6 +67,11 @@ app.use(ensureAuthenticated);
 app.use('/prompts', prompts);
 app.use('/progress', progress);
 app.use('/flowers', flowers);
+
+app.post('/logout', function(req, res){
+  req.logOut();
+  res.redirect("/");
+});
 
 app.get('/userInfo', function (req, res) {
   var user = req.user;

@@ -35,7 +35,7 @@
   </head>
 
   <body>
-    <div ng-app="pollenApp" ng-controller="NavController as navCtrl" class="container-fluid">
+    <div ng-app="pollenApp" ng-controller="NavController as nCtrl" class="container-fluid">
       <div class="row">
         <div class="col-xs-12 col-md-12 logo">
           <img class src="assets/pollinatelogo-02.svg" alt="Pollinate Logo"/>
@@ -50,7 +50,15 @@
           <a href="/"><button type="button" class="btn btn-default navbar-btn">nutrients</button></a>
         </nav>
       </div>
+
       <ng-view></ng-view>
+
+      <footer class="row">
+        <div class="col-xs-12 col-md-12 footer">
+          <button type="button" class="btn btn-default navbar-btn footer" ng-click="nCtrl.logout()">log out</button>
+        </div>
+      </footer>
+      
     </div>
   </body>
 </html>
