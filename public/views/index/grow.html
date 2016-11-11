@@ -1,9 +1,29 @@
-<button ng-click="gCtrl.gatherNutrients(gCtrl.userId)" ng-value={{gCtrl.userId}} class="btn btn-primary">Gather Nutrients</button>
-<div>
-  <span data-drag="true" ng-value={{gCtrl.waterId}} jqyoui-draggable="{onStop:'gCtrl.setWater()'}">{{gCtrl.water}}</span>
-  <span data-drag="true" ng-value={{gCtrl.sunId}} jqyoui-draggable="{onStop:'gCtrl.setSun()'}">{{gCtrl.sun}}</span>
-  <div data-drop="true" ng-value={{gCtrl.item}} jqyoui-droppable="{onDrop:'gCtrl.feedPlant()'}"> HERE </div>
-  <small><em>Object (changes type based on value)</em></small>
-  <uib-progressbar class="progress-striped active" max="gCtrl.max" value="gCtrl.current" type="status">{{gCtrl.current}}/{{gCtrl.max}}</uib-progressbar>
-  
+<div class="row seed">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <div data-drop="true" ng-value={{gCtrl.item}} jqyoui-droppable="{onDrop:'gCtrl.feedPlant()'}"> HERE </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <uib-progressbar class="progress-striped active" max="gCtrl.max" value="gCtrl.current" type="custom">{{gCtrl.current}}/{{gCtrl.max}}</uib-progressbar>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-8 col-md-offset-2 gather">
+    <button ng-click="gCtrl.gatherNutrients(gCtrl.userId)" ng-value={{gCtrl.userId}} class="btn btn-primary">Gather Nutrients</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-xs-6 col-md-3 sun">
+    <span data-drag="true" ng-value={{gCtrl.sunId}} jqyoui-draggable="{onStop:'gCtrl.setSun()'}">{{gCtrl.sun}}</span>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-xs-6 col-md-3 water">
+    <span data-drag="true" ng-value={{gCtrl.waterId}} jqyoui-draggable="{onStop:'gCtrl.setWater()'}">{{gCtrl.water}}</span>
+  </div>
+  <div class="col-md-2"></div>
 </div>

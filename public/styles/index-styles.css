@@ -62,3 +62,16 @@ body {
 .col-xs-12.col-md-12.submit {
   text-align: center;
 }
+
+.progress-bar-custom {
+  background-color: #b37e76;
+  color: #2D2609;
+}
+
+.col-xs-12.col-md-8.col-md-offset-2.gather {
+  text-align: center;
+}
+
+.row.seed {
+  margin: 20% 0% 5% 0%;
+}
