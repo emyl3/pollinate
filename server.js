@@ -7,7 +7,6 @@ const path = require('path');
 const passport = require('passport');
 const session = require('express-session');
 const SECRET_KEY = process.env.SECRET_KEY;
-// const logout = require('express-passport-logout');
 
 const connection = require('./database/connection');
 const login = require('./routes/login');
@@ -23,14 +22,14 @@ auth.setup();
 
 const user = require('./models/user');
 const sessionConfig = {
-  secret: SECRET_KEY, //TODO this should be read from ENV
+  secret: SECRET_KEY,
   key: 'user',
   resave: true,
   saveUninitialized: true,
   cookie: {
     maxAge: 30 * 60 * 1000,
     secure: false,
-  }
+  },
 };
 
 const app = express();
@@ -68,9 +67,9 @@ app.use('/prompts', prompts);
 app.use('/progress', progress);
 app.use('/flowers', flowers);
 
-app.post('/logout', function(req, res){
+app.post('/logout', function (req, res) {
   req.logOut();
-  res.redirect("/");
+  res.redirect('/');
 });
 
 app.get('/userInfo', function (req, res) {
