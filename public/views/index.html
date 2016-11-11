@@ -38,7 +38,7 @@
     <div ng-app="pollenApp" ng-controller="NavController as nCtrl" class="container-fluid">
       <div class="row">
         <div class="col-xs-12 col-md-12 logo">
-          <img class src="assets/pollinatelogo-02.svg" alt="Pollinate Logo"/>
+          <img class ng-src="{{nCtrl.headerImage}}" alt="Pollinate Logo"/>
         </div>
       </div>
 
@@ -58,7 +58,7 @@
           <button type="button" class="btn btn-default navbar-btn footer" ng-click="nCtrl.logout()">log out</button>
         </div>
       </footer>
-      
+
     </div>
   </body>
 </html>

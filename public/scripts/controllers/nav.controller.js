@@ -1,7 +1,9 @@
 app.controller('NavController', NavController);
 
-function NavController($http) {
+function NavController($http, $location) {
   var ctrl = this;
+  var location = $location.url();
+  determineHeader();
 
   ctrl.logout = function () {
     $http.post('/logout', {}).then(function (response) {
@@ -12,4 +14,11 @@ function NavController($http) {
       }
     });
   };
+
+  function determineHeader() {
+    console.log(location);
+    if (location === '/home' || '/plant') {
+      ctrl.headerImage = 'assets/pollinatelogo-02.svg';
+    }
+  }
 }

@@ -1,17 +1,20 @@
 <form class="form-horizontal col-xs-12 col-md-6 col-md-offset-3 well" ng-value={{pCtrl.userId}} ng-submit="pCtrl.submit(pCtrl.userId, pCtrl.promptId, pCtrl.response, pCtrl.prompt)">
   <div class="form-group row">
-    <h2>Today, I</h2>
-  </div>
-  <div class="form-group row">
-    <p>{{pCtrl.prompt}}</p>
-  </div>
-  <div class="form-group row">
-    <label class="control-label col-xs-offset-1 col-xs-2">Your Response:</label>
-    <div class="col-xs-8">
-      <input class="form-control" ng-value={{pCtrl.promptId}} ng-model="pCtrl.response">
+    <div class="col-xs-12 col-md-12 header">
+      <p>Today, I {{pCtrl.prompt}}</p>
     </div>
   </div>
-  <div class="col-xs-offset-3 col-xs-10">
-    <button type="submit" class="btn btn-primary">Submit</button>
+
+  <div class="form-group row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-10 col-md-offset-1">
+      <textarea class="form-control" rows="2" maxlength="100" ng-value={{pCtrl.promptId}} ng-model="pCtrl.response" required></textarea>
+      <small id="textHelp" class="form-text text-muted">please limit your response to <strong>100 characters or less</strong>.</small>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-xs-12 col-md-12 submit">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
   </div>
 </form>
