@@ -27,6 +27,8 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
         ctrl.max = progressData.max;
         ctrl.current = progressData.current;
       }
+
+      setFlowerImage(ctrl.current, ctrl.max);
     });
   });
 
@@ -77,7 +79,6 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
   };
 
   function check() {
-    console.log('in check');
     ctrl.current++;
     if (ctrl.current < ctrl.max) {
       //status dialog here
@@ -86,7 +87,6 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
         progress.getProgress(ctrl.userId);
       });
     } else if (ctrl.current === ctrl.max) {
-      console.log('YAY!');
       flower.getFlowerNumber()
         .then(function (response) {
         var flowerIdMax =  response + 1;
@@ -107,6 +107,30 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
       progress.editProgress(data).then(function (response) {
         progress.getProgress(ctrl.userId);
       });
+    }
+    setFlowerImage(ctrl.current, ctrl.max);
+
+  }
+
+  function setFlowerImage(current, max) {
+    var percentComplete = (current / max);
+    if (percentComplete <= 0.1) {
+      ctrl.plantImage = 'assets/grow/seed0.svg';
+      return;
+    } else if (percentComplete <= 0.2) {
+      ctrl.plantImage = 'assets/grow/seed1.svg';
+      return;
+    } else if (percentComplete <= 0.4) {
+      ctrl.plantImage = 'assets/grow/seed2.svg';
+      return;
+    } else if (percentComplete <= 0.6) {
+      ctrl.plantImage = 'assets/grow/seed3.svg';
+      return;
+    } else if (percentComplete <= 0.8) {
+      ctrl.plantImage = 'assets/grow/seed4.svg';
+      return;
+    } else if (percentComplete === 1) {
+      ctrl.plantImage = 'assets/grow/seed2.svg';
     }
   }
 

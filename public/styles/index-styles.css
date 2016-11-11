@@ -50,7 +50,6 @@ body {
     color: #ffffff;
     background-color: #601e14;
     border-color: #601e14;
-    margin-top: 5%;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary.active, .btn-primary:active, .btn-primary:active:focus, .open>.dropdown-toggle.btn-primary {
@@ -68,10 +67,36 @@ body {
   color: #2D2609;
 }
 
+.progress-striped.active {
+  margin-top: 2%;
+}
+
 .col-xs-12.col-md-8.col-md-offset-2.gather {
   text-align: center;
 }
 
 .row.seed {
-  margin: 20% 0% 5% 0%;
+  margin: 5% 0% 2% 0%;
+}
+
+.nutrients.drop {
+  float: left;
+  position: absolute;
+  left: 43%;
+  top: 35%;
+  z-index: 1000;
+  background-color: rgba(255, 0, 0, 0);
+  width: 15%;
+  height: 20%;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+#seedling {
+  width: 50%;
+  position: relative;
+}
+
+.col-xs-12.col-md-8.col-md-offset-2.well {
+  text-align: center;
 }
