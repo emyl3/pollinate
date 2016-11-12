@@ -7,8 +7,35 @@ var config = {
 
 var pool = new pg.Pool(config);
 
+router.get('/userResponseRange', function (req, res) {
+  pool.connect(function (err, client, done) {
+    try {
+      if (err) {
+        console.log('Error connecting to the database', err);
+        res.sendStatus(500);
+        return;
+      }
+
+      client.query('SELECT response FROM user_responses WHERE user_id = $1 AND entrydate BETWEEN $2 AND $3;',
+        [req.query.userId, req.query.startDate, req.query.endDate],
+        function (err, result) {
+          if (err) {
+            console.log('Error querying the database', err);
+            res.sendStatus(500);
+            return;
+          }
+
+          console.log('Got rows from the database: ', result.rows);
+          res.send(result.rows);
+        });
+
+    } finally {
+      done();
+    }
+  });
+});
+
 router.get('/userResponse', function (req, res) {
-  var userId = req.query.userId;
   pool.connect(function (err, client, done) {
     try {
       if (err) {
@@ -18,7 +45,7 @@ router.get('/userResponse', function (req, res) {
       }
 
       client.query('SELECT * FROM user_responses WHERE user_id = $1 AND used = false;',
-        [userId],
+        [req.query.userId],
         function (err, result) {
           if (err) {
             console.log('Error querying the database', err);
@@ -37,7 +64,6 @@ router.get('/userResponse', function (req, res) {
 });
 
 router.put('/userResponse', function (req, res) {
-  console.log('request', req.body);
   pool.connect(function (err, client, done) {
     try {
       if (err) {

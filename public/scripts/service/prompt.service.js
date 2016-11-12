@@ -36,10 +36,23 @@ function PromptService($http) {
     });
   }
 
+  function getResponseRange(userId, startDate, endDate) {
+    return $http.get('/prompts/userResponseRange', {
+      params: {
+        userId: userId,
+        startDate: startDate,
+        endDate: endDate,
+      },
+    }).then(function (response) {
+      return response;
+    });
+  }
+
   return {
     getPromptArray: getPromptArray,
     postResponse: postResponse,
     getResponses: getResponses,
     changeResStatus: changeResStatus,
+    getResponseRange: getResponseRange,
   };
 }

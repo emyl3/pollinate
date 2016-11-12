@@ -20,4 +20,10 @@ cp node_modules/angular-animate/angular-animate.min.js.map public/vendors;
 cp node_modules/angular-dragdrop/src/angular-dragdrop.min.js public/vendors;
 
 cp node_modules/jquery/dist/jquery.min.js public/vendors;
-cp node_modules/jquery/dist/jquery.min.map public/vendors
+cp node_modules/jquery/dist/jquery.min.map public/vendors;
+
+cp node_modules/moment/min/moment.min.js public/vendors;
+cp node_modules/moment/min/moment-with-locales.min.js public/vendors;
+
+cp node_modules/angular-moment-picker/dist/angular-moment-picker.min.js public/vendors;
+cp node_modules/angular-moment-picker/dist/angular-moment-picker.min.css public/vendors;
