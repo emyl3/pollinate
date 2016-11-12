@@ -2,7 +2,6 @@ app.controller('NutrientController', NutrientController);
 
 function NutrientController(userData, prompt) {
   var ctrl = this;
-  ctrl.promptResponses = [];
 
   ctrl.submitDateRange = function (first, second) {
     userData.getUserId().then(function (response) {
@@ -11,8 +10,7 @@ function NutrientController(userData, prompt) {
       var endDate = second;
       prompt.getResponseRange(userId, startDate, endDate).then(function (response) {
         ctrl.promptResponses = response.data;
-        console.log(ctrl.promptResponses);
       });
     });
   };
-};
+}
