@@ -76,27 +76,32 @@ body {
 }
 
 .row.seed {
-  margin: 5% 0% 2% 0%;
-}
-
-.nutrients.drop {
-  float: left;
-  position: absolute;
-  left: 43%;
-  top: 35%;
-  z-index: 1000;
-  background-color: rgba(255, 0, 0, 0);
-  width: 15%;
-  height: 20%;
-  color: #FFFFFF;
-  font-weight: bold;
+  margin: 2% 0% 2% 0%;
 }
 
 #seedling {
   width: 50%;
-  position: relative;
 }
 
 .col-xs-12.col-md-8.col-md-offset-2.well {
+  text-align: center;
+}
+
+a {
+  color: #601e14;
+}
+
+.col-xs-12.col-md-12.gather {
+  margin-bottom: 5%;
+}
+
+.modal-title {
+  font-family: 'Itim', cursive;
+  text-align: center;
+  background-color: #99e5c8;
+  color: #2D2609;
+}
+
+.modal-body {
   text-align: center;
 }

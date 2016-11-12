@@ -42,13 +42,16 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
           secondNum = getRandomNumber(0, response.length);
         }
 
+        ctrl.waterStatus = true;
         ctrl.water = response.data[firstNum].response;
         ctrl.waterId = response.data[firstNum].id;
+        ctrl.sunStatus = true;
         ctrl.sun = response.data[secondNum].response;
         ctrl.sunId = response.data[secondNum].id;
       } else {
-        //need to create alert that redirects to plant page
-        console.log('you need more nutrients.');
+        ctrl.alertType = 'alert alert-warning';
+        ctrl.alertCode = 'Not enough nutrients.';
+        ctrl.redirect = true;
       }
     });
   };
@@ -66,13 +69,13 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
     if (ctrl.item === 'water') {
       idToChange = ctrl.waterId;
       prompt.changeResStatus(idToChange).then(function (response) {
-        ctrl.water = 'waterchangenow'; //change effect here
+        ctrl.waterStatus = false;
         check();
       });
     } else if (ctrl.item === 'sun') {
       idToChange = ctrl.sunId;
       prompt.changeResStatus(idToChange).then(function (response) {
-        ctrl.sun = 'sunchangednow'; //change effect here
+        ctrl.sunStatus = false;
         check();
       });
     }
@@ -81,7 +84,10 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
   function check() {
     ctrl.current++;
     if (ctrl.current < ctrl.max) {
-      //status dialog here
+      ctrl.alertType = 'alert alert-success';
+      ctrl.alertCode = 'Success! Nutrients added.';
+      ctrl.redirect = false;
+      ctrl.timeOut = 3000;
       data = { userId: ctrl.userId, maxNum: ctrl.max, current: ctrl.current };
       progress.editProgress(data).then(function (response) {
         progress.getProgress(ctrl.userId);
@@ -108,8 +114,8 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
         progress.getProgress(ctrl.userId);
       });
     }
-    setFlowerImage(ctrl.current, ctrl.max);
 
+    setFlowerImage(ctrl.current, ctrl.max);
   }
 
   function setFlowerImage(current, max) {
@@ -129,8 +135,8 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
     } else if (percentComplete <= 0.8) {
       ctrl.plantImage = 'assets/grow/seed4.svg';
       return;
-    } else if (percentComplete === 1) {
-      ctrl.plantImage = 'assets/grow/seed2.svg';
+    } else if (percentComplete <= 1.0) {
+      ctrl.plantImage = 'assets/grow/seed5.svg';
     }
   }
 
@@ -144,6 +150,10 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
         },
       },
     });
+  };
+
+  ctrl.closeAlertCode = function () {
+    ctrl.alertCode = false;
   };
 
   function getRandomNumber(min, max) {

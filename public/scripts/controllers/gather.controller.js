@@ -1,6 +1,6 @@
-app.controller('PlantController', PlantController);
+app.controller('GatherController', GatherController);
 
-function PlantController(prompt, userData) {
+function GatherController(prompt, userData) {
   var ctrl = this;
 
   userData.getUserInfo().then(function (response) {
