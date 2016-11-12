@@ -13,13 +13,13 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
       var progressData = response[0];
 
       if (response.length === 0) {
-        ctrl.max = getRandomNumber(25, 35);
+        ctrl.max = getRandomNumber(10, 15);
         ctrl.current = 0;
         data = { userId: ctrl.userId, maxNum: ctrl.max, current: ctrl.current };
         progress.postProgress(data);
 
       } else if (progressData.max === progressData.current) {
-        ctrl.max = getRandomNumber(25, 35);
+        ctrl.max = getRandomNumber(10, 15);
         ctrl.current = 0;
         data = { userId: ctrl.userId, maxNum: ctrl.max, current: ctrl.current };
         progress.editProgress(data);
@@ -108,7 +108,7 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
           });
       });
 
-      ctrl.max = getRandomNumber(25, 35);
+      ctrl.max = getRandomNumber(10, 15);
       ctrl.current = 0;
       data = { userId: ctrl.userId, maxNum: ctrl.max, current: ctrl.current };
       progress.editProgress(data).then(function (response) {

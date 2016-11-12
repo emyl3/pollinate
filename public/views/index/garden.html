@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-12 col-md-4 unlocked" ng-repeat="flower in gCtrl.flowers">
         <img class="unlocked flowers" ng-src="{{flower.url}}" ng-click="gCtrl.openModal(flower.flower_id, flower.url)"/>
-        <button class="btn btn-primary" ng-value="flower.flower_id" ng-click="gCtrl.openModal(flower.flower_id, flower.url)">Send <span class="badge">{{flower.count}}</span></button>
+        <button class="btn btn-primary send" ng-value="flower.flower_id" ng-click="gCtrl.openModal(flower.flower_id, flower.url)">Send <span class="badge">{{flower.count}}</span></button>
       </div>
     </div>
   </div>

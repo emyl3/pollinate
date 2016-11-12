@@ -119,8 +119,8 @@ span.badge {
 }
 
 .unlocked.flowers {
-  width: 100%;
-  min-width: 250px;
+  width: 250px;
+  margin-bottom: 10px;
 }
 
 .col-xs-12.col-md-4.unlocked {
@@ -134,4 +134,8 @@ span.badge {
 
 p.instructions {
   text-align: left;
+}
+
+.btn.btn-primary.send {
+  margin-bottom: 50px;
 }
