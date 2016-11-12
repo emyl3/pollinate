@@ -1,5 +1,10 @@
-<div ng-repeat="flower in gCtrl.flowers">
-  <img ng-src="{{flower.url}}" ng-click="gCtrl.openModal(flower.flower_id, flower.url)"/>
-  <p ng-value="flower.url">Count: {{flower.count}}</p>
-  <button class="btn-group btn" ng-value="flower.flower_id" ng-click="gCtrl.openModal(flower.flower_id, flower.url)">Send to a Friend</button>
+<div class="row">
+  <div class="col-xs-12 col-md-10 col-md-offset-1 well">
+    <div class="row">
+      <div class="col-xs-12 col-md-4 unlocked" ng-repeat="flower in gCtrl.flowers">
+        <img class="unlocked flowers" ng-src="{{flower.url}}" ng-click="gCtrl.openModal(flower.flower_id, flower.url)"/>
+        <button class="btn btn-primary" ng-value="flower.flower_id" ng-click="gCtrl.openModal(flower.flower_id, flower.url)">Send <span class="badge">{{flower.count}}</span></button>
+      </div>
+    </div>
+  </div>
 </div>

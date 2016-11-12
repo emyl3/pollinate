@@ -2,6 +2,7 @@ app.controller('GatherController', GatherController);
 
 function GatherController(prompt, userData) {
   var ctrl = this;
+  ctrl.isCollapsed = false;
 
   userData.getUserInfo().then(function (response) {
       ctrl.userId = response.data.id;

@@ -95,13 +95,43 @@ a {
   margin-bottom: 5%;
 }
 
-.modal-title {
-  font-family: 'Itim', cursive;
+.modal-header.send {
+  font-family: 'Itim', 'cursive';
+  background-color: #99e5c8;
+  color: #2D2609;
+}
+
+.modal-header.reward {
+  font-family: 'Itim', 'cursive';
   text-align: center;
   background-color: #99e5c8;
   color: #2D2609;
 }
 
-.modal-body {
+.modal-body.reward {
   text-align: center;
+}
+
+span.badge {
+  font-family: 'Open Sans', sans-serif !important;
+  background-color: #b37e76 !important;
+  color: #ffffff !important;
+}
+
+.unlocked.flowers {
+  width: 100%;
+  min-width: 250px;
+}
+
+.col-xs-12.col-md-4.unlocked {
+  text-align: center;
+}
+
+.panel-title {
+  font-size: 1em;
+  text-align: left;
+}
+
+p.instructions {
+  text-align: left;
 }

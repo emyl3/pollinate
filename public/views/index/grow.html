@@ -3,6 +3,13 @@
     <div class="row">
       <div class="col-xs-12 col-md-12">
         <div uib-alert class="{{gCtrl.alertType}}" ng-show="gCtrl.alertCode" dismiss-on-timeout="gCtrl.timeOut" close="gCtrl.closeAlertCode()">{{gCtrl.alertCode}} <span ng-show="gCtrl.redirect"><a href='/gather'>Gather more</a>.</span></div>
+        <uib-accordion ng-hide="gCtrl.alertCode">
+          <div uib-accordion-group class="panel-info" heading="> Instructions" is-open="gCtrl.isCollapsed">
+            <div uib-collapse="!gCtrl.isCollapsed">
+              <p class="instructions">Click "Gather Nutrients." Then drag and drop the nutrients to your growing plant!</p>
+            </div>
+          </div>
+        </uib-accordion>
       </div>
     </div>
 

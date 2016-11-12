@@ -1,4 +1,12 @@
 <form class="form-horizontal col-xs-12 col-md-6 col-md-offset-3 well" ng-value={{gCtrl.userId}} ng-submit="gCtrl.submit(gCtrl.userId, gCtrl.promptId, gCtrl.response, gCtrl.prompt)">
+  <uib-accordion>
+    <div uib-accordion-group class="panel-info" heading="> Instructions" is-open="gCtrl.isCollapsed">
+      <div uib-collapse="!gCtrl.isCollapsed">
+        <p class="instructions">Gather nutrients by submiting a response to the prompt below.</p>
+      </div>
+    </div>
+  </uib-accordion>
+
   <div class="form-group row">
     <div class="col-xs-12 col-md-12 header">
       <p>Today, I {{gCtrl.prompt}}</p>

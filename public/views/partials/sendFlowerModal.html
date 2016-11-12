@@ -1,8 +1,8 @@
-<div class="modal-header">
+<div class="modal-header send">
   <h3 class="modal-title">Send a Flower</h3>
 </div>
 
-<div class="modal-body">
+<div class="modal-body send">
   <form>
     <div class="form-group">
       <uib-accordion>
@@ -27,7 +27,7 @@
     <div>
       <label for="telephone">{{sCtrl.formAlert}}</label>
       <input type="tel" class="form-control" aria-describedby="telHelp" pattern="\d{3}[\-]\d{3}[\-]\d{4}" placeholder="123-456-7890" ng-model="sCtrl.destinationPhone" required>
-      <small id="telHelp" class="form-text text-muted">Only U.S. phone numbers accepted. Please be sure to <a ng-click="sCtrl.open()"><strong>verify the destination phone number</strong></a> beforehand.</small>
+      <small id="telHelp" class="form-text text-muted">Only U.S. phone numbers accepted. Please be sure to <a ng-click="sCtrl.open()"><strong>verify the destination phone number</strong></a>.</small>
     </div>
   </div>
 
@@ -43,6 +43,6 @@
 </div>
 
 <div class="modal-footer">
-  <button type="submit" class="btn btn-info" ng-value="sCtrl.userId"  ng-click="sCtrl.submitForm(sCtrl.destinationPhone, sCtrl.message, sCtrl.userId, sCtrl.flowerId, sCtrl.flowerUrl)">Send</button>
+  <button type="submit" class="btn btn-success" ng-value="sCtrl.userId"  ng-click="sCtrl.submitForm(sCtrl.destinationPhone, sCtrl.message, sCtrl.userId, sCtrl.flowerId, sCtrl.flowerUrl)">Send</button>
   <button class="btn btn-danger" ng-click="sCtrl.closeModal()">Cancel</button>
 </div>

@@ -4,6 +4,7 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
   var ctrl = this;
   var maxNum;
   var current;
+  ctrl.isCollapsed = false;
 
   userData.getUserId().then(function (response) {
     var data;
