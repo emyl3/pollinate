@@ -156,3 +156,13 @@ p.instructions {
 .nutrient.header {
   margin-bottom: 30px;
 }
+
+#sun {
+  max-width: 200px !important;
+  min-width: 100px !important;
+}
+
+#water {
+  max-width: 200px !important;
+  min-width: 100px !important;
+}

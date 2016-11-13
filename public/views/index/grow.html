@@ -34,11 +34,17 @@
     <div class="row">
       <div class="col-md-2"></div>
       <div class="col-xs-6 col-md-3 sun">
-        <span data-drag="true" ng-value={{gCtrl.sunId}} ng-show="gCtrl.sunStatus" jqyoui-draggable="{onStop:'gCtrl.setSun()'}" data-jqyoui-options="{helper: 'clone'}" containment="document">{{gCtrl.sun}}</span>
+        <div data-drag="true" ng-show="gCtrl.sunStatus" jqyoui-draggable="{onStop:'gCtrl.setSun()'}" data-jqyoui-options="{helper: 'clone'}" containment="document">
+          <img id="sun" src="/assets/pollinatelogo-11.svg">
+          <span ng-value={{gCtrl.sunId}}>{{gCtrl.sun}}</span>
+        </div>
       </div>
       <div class="col-md-2"></div>
       <div class="col-xs-6 col-md-3 water">
-        <span data-drag="true" ng-value={{gCtrl.waterId}} ng-show="gCtrl.waterStatus" jqyoui-draggable="{onStop:'gCtrl.setWater()'}" data-jqyoui-options="{helper: 'clone'}" containment="document">{{gCtrl.water}}</span>
+        <div data-drag="true" ng-show="gCtrl.waterStatus" jqyoui-draggable="{onStop:'gCtrl.setWater()'}" data-jqyoui-options="{helper: 'clone'}" containment="document">
+          <img id="water" src="/assets/pollinatelogo-10.svg">
+          <span ng-value={{gCtrl.waterId}}>{{gCtrl.water}}</span>
+        </div>
       </div>
       <div class="col-md-2"></div>
     </div>
