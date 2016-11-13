@@ -139,3 +139,7 @@ p.instructions {
 .btn.btn-primary.send {
   margin-bottom: 50px;
 }
+
+.col-xs-12.col-md-6.response {
+  text-align: center;
+}
