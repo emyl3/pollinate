@@ -86,7 +86,7 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
     ctrl.current++;
     if (ctrl.current < ctrl.max) {
       ctrl.alertType = 'alert alert-success';
-      ctrl.alertCode = 'Success! Nutrients added.';
+      ctrl.alertCode = 'Success! Nutrient added.';
       ctrl.redirect = false;
       ctrl.timeOut = 3000;
       data = { userId: ctrl.userId, maxNum: ctrl.max, current: ctrl.current };

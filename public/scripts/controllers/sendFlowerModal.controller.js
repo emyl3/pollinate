@@ -59,7 +59,7 @@ function SendFlowerModalController($uibModalInstance, flower, flowerId, flowerUr
         return;
       } else {
         ctrl.alertType = 'alert alert-success';
-        ctrl.alertVerify = response.data.validation_code;
+        ctrl.alertCode = 'Please enter the following verification code: ' + response.data.validation_code + ' when prompted by a phone call from 415-723-4000.';
         return;
       }
     });
@@ -67,10 +67,6 @@ function SendFlowerModalController($uibModalInstance, flower, flowerId, flowerUr
 
   ctrl.closeAlertCode = function () {
     ctrl.alertCode = false;
-  };
-
-  ctrl.closeVerify = function () {
-    ctrl.alertVerify = false;
   };
 
   ctrl.closeFormAlert = function () {

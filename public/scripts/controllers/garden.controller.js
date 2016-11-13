@@ -5,7 +5,11 @@ function GardenController(userData, flower, $uibModal) {
 
   userData.getUserId().then(function (response) {
     flower.getUserFlowers(response).then(function (response) {
-      ctrl.flowers = response;
+      if (response.length === 0) {
+        ctrl.emptyRewards = true;
+      } else {
+        ctrl.flowers = response;
+      }
     });
   });
 

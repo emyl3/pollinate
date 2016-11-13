@@ -8,6 +8,13 @@
       </div>
     </uib-accordion>
 
+    <div class="row" ng-show="gCtrl.emptyRewards">
+      <div class="col-xs-12 col-md-12 emptyMessage">
+        <h1>Your garden is empty.</h1>
+        <p>Why not <a href="/grow">grow</a> some flowers?</p>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-xs-12 col-md-4 unlocked" ng-repeat="flower in gCtrl.flowers">
         <img class="unlocked flowers" ng-src="{{flower.url}}" ng-click="gCtrl.openModal(flower.flower_id, flower.url)"/>

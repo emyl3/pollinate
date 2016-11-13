@@ -95,6 +95,10 @@ a {
   margin-bottom: 5%;
 }
 
+.col-xs-12.col-md-12.emptyMessage {
+  text-align: center;
+}
+
 .modal-header.send {
   font-family: 'Itim', 'cursive';
   background-color: #99e5c8;
@@ -140,6 +144,15 @@ p.instructions {
   margin-bottom: 50px;
 }
 
-.col-xs-12.col-md-6.response {
+.row.responses {
   text-align: center;
+}
+
+.col-xs-8.col-xs-offset-2.col-md-8.col-md-offset-2.divider {
+  margin-top: 5%;
+  border: 1px solid #601e14;
+}
+
+.nutrient.header {
+  margin-bottom: 30px;
 }

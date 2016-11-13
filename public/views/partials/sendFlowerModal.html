@@ -8,8 +8,7 @@
       <uib-accordion>
         <div uib-accordion-group class="{{sCtrl.panelStatus}}" heading="Verify Destination Phone Number" is-open="sCtrl.isCollapsed">
           <div uib-collapse="!sCtrl.isCollapsed">
-            <div uib-alert class="{{sCtrl.alertType}}" ng-show="sCtrl.alertCode" dismiss-on-timeout="10000" close="sCtrl.closeAlertCode()">{{sCtrl.alertCode}}</div>
-            <div uib-alert class="{{sCtrl.alertType}}" ng-show="sCtrl.alertVerify" dismiss-on-timeout="30000" close="sCtrl.closeVerify()">Please enter the following verification code: <strong>{{sCtrl.alertVerify}}</strong></br> when prompted by a phone call from 415-723-4000.</div>
+            <div uib-alert class="{{sCtrl.alertType}}" ng-show="sCtrl.alertCode" close="sCtrl.closeAlertCode()">{{sCtrl.alertCode}}</div>
             <label for="telephone">{{sCtrl.panelMessage}}</label>
             <input type="tel" class="form-control" aria-describedby="verifyHelp" pattern="\d{3}[\-]\d{3}[\-]\d{4}" placeholder="123-456-7890" ng-model="sCtrl.verificationPhone" required>
             <small id="verifyHelp" class="form-text text-muted">Only U.S. phone numbers accepted.</small>

@@ -9,8 +9,17 @@ function NutrientController(userData, prompt) {
       var startDate = first;
       var endDate = second;
       prompt.getResponseRange(userId, startDate, endDate).then(function (response) {
-        ctrl.promptResponses = response.data;
+        if (response.data.length < 1) {
+          ctrl.alertType = 'alert alert-danger';
+          ctrl.alertCode = 'You have no nutrients from those dates. Please enter a valid date range.';
+        } else {
+          ctrl.promptResponses = response.data;
+        }
       });
     });
+  };
+
+  ctrl.closeAlertCode = function () {
+    ctrl.alertCode = false;
   };
 }

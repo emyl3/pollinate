@@ -5,9 +5,7 @@
     </div>
   </div>
 
-  <div uib-alert class="{{tCtrl.alertType}}" ng-show="tCtrl.error" close="tCtrl.close()">{{tCtrl.error}}</div>
-  <div uib-alert class="{{tCtrl.alertType}}" ng-show="tCtrl.success" close="tCtrl.close()">Please enter the following verification code: <strong>{{tCtrl.success}}</strong></br> when prompted by a phone call from 415-723-4000.</div>
-
+  <div uib-alert class="{{tCtrl.alertType}}" ng-show="tCtrl.alertStatus" close="tCtrl.close()">{{tCtrl.alertStatus}}</div>
   <div class="form-group row">
     <div class="col-xs-12 col-md-8 col-md-offset-2">
       <input type="tel" class="form-control" aria-describedby="verifyHelp" pattern="\d{3}[\-]\d{3}[\-]\d{4}" placeholder="123-456-7890" ng-model="tCtrl.verificationPhone" required autofocus>
