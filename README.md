@@ -3,8 +3,6 @@ Pollinate is the culmination of the solo project phase of Prime Digital Academy.
 
 Pollinate will help to cultivate a habit of writing and reflecting on self-affirmations while allowing the User to share affirmations of others as well. The purpose of this application is to serve hopefully as one of many supportive tools for those who may struggle with depression.
 
-<b>Technology Used</b>:
-
 ## Features
 [Register](#register) | [Login/Logout](#login_logout) | [Verify Phone Number](#verify) | [Gather](#gather) | [Grow](#grow) | [Garden](#garden) | [Nutrients](#nutrients)
 
@@ -40,6 +38,8 @@ Once the user clicks on the image of the flower or the "Send" button a modal wil
 Users can select from a range of dates to reflect and review on the "nutrients" or self-affirmations they entered.
 
 ## Usage
+<b>Technology Used</b>: SQL, Express, AngularJS, Node.js, Bootstrap, Passport, Twilio REST API, Moment.js, Angular-DragDrop
+
 Fork the repository. Set up a SQL database according to the `database.sql` file. Run `npm install` in the project directory. Then, run `npm start` and go to localhost:3000 in a browser to run the application.
 
 # Authors
