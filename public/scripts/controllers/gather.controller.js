@@ -35,12 +35,18 @@ function GatherController(prompt, userData) {
 
     prompt.postResponse(value)
       .then(function (response) {
+        ctrl.alertType = 'alert alert-success';
+        ctrl.alertCode = 'Success! Nutrient added!';
         ctrl.response = '';
         ctrl.getPrompt();
       });
   };
 
   ctrl.getPrompt();
+
+  ctrl.closeAlertCode = function () {
+    ctrl.alertCode = false;
+  };
 
   function getRandomNumber() {
     var promptNumber = Math.floor((Math.random() * 5) + 0);
