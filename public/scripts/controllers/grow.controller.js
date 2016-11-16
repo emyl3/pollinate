@@ -82,6 +82,7 @@ function GrowController(prompt, userData, progress, flower, $uibModal) {
     }
   };
 
+//refactor
   function check() {
     ctrl.current++;
     if (ctrl.current < ctrl.max) {

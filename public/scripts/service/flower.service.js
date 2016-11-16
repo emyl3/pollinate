@@ -47,8 +47,6 @@ function FlowerService($http) {
     });
   }
 
-
-
   return {
     getFlowerNumber: getFlowerNumber,
     getReward: getReward,

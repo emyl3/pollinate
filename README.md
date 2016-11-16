@@ -40,7 +40,7 @@ Users can select from a range of dates to reflect and review on the "nutrients" 
 ## Usage
 <b>Technology Used</b>: SQL, Express, AngularJS, Node.js, Bootstrap, Passport, Twilio REST API, Moment.js, Angular-DragDrop
 
-Fork the repository. Set up a SQL database according to the `database.sql` file. Run `npm install` in the project directory. Then, run `npm start` and go to localhost:3000 in a browser to run the application.
+Fork the repository. Set up a SQL database according to the `database.sql` file. Run `npm install` in the project directory. Then, run `npm start` and go to `localhost:3000` in a browser to run the application.
 
 # Authors
 - elisa lee

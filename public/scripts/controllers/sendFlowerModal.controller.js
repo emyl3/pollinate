@@ -14,9 +14,7 @@ function SendFlowerModalController($uibModalInstance, flower, flowerId, flowerUr
   };
 
   flower.getReward(flowerId).then(function (response) {
-    console.log('response', response);
     ctrl.url = response[0].url;
-    console.log(ctrl.url);
   });
 
   userData.getUserId().then(function (response) {
@@ -31,7 +29,6 @@ function SendFlowerModalController($uibModalInstance, flower, flowerId, flowerUr
     } else {
       var data = { phone: phone, message: message, flowerUrl: flowerUrl };
       $http.post('/twilioroute', data).then(function (response) {
-        console.log(response);
         if (response.data.status === 400) {
           ctrl.isCollapsed = !ctrl.isCollapsed;
           ctrl.panelStatus = 'panel-danger';
