@@ -15,10 +15,10 @@ function NavController($http, $location) {
     });
   };
 
-  // function determineHeader() {
-  //   console.log(location);
-  //   if (location === '/home' || '/plant') {
-  //     ctrl.headerImage = 'assets/pollinatelogo-02.svg';
-  //   }
-  // }
+  function determineHeader() {
+    console.log(location);
+    if (location === '/home' || '/plant') {
+      ctrl.headerImage = 'assets/pollinatelogo-02.svg';
+    }
+  }
 }
