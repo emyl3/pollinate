@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "postinstall": "./build.sh"
+    "postinstall": "./build.sh",
+    "heroku-postbuild": "./build.sh"
   },
   "author": "elisa lee <elisa.my.lee@gmail.com>",
   "license": "ISC",
