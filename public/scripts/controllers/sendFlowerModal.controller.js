@@ -48,15 +48,19 @@ function SendFlowerModalController($uibModalInstance, flower, flowerId, flowerUr
     $http.post('/twilioroute/signup', data).then(function (response) {
       if (response.data.code === 21450) {
         ctrl.alertType = 'alert alert-info';
-        ctrl.alertCode = 'This phone number is already verified and ready to receive affirmations.';
+        ctrl.alertCode = 'This phone number is already verified and ready to ' +
+                        'receive affirmations.';
         return;
       } else if (response.data.code === 400) {
         ctrl.alertType = 'alert alert-danger';
-        ctrl.alertCode = 'Please enter a valid phone number in the following format XXX-XXX-XXXX.';
+        ctrl.alertCode = 'Please enter a valid phone number in the following' +
+                        'format XXX-XXX-XXXX.';
         return;
       } else {
         ctrl.alertType = 'alert alert-success';
-        ctrl.alertCode = 'Please enter the following verification code: ' + response.data.validation_code + ' when prompted by a phone call from 415-723-4000.';
+        ctrl.alertCode = 'Please enter the following verification code: ' +
+                         response.data.validation_code + ' when prompted by a' +
+                         ' phone call from 415-723-4000.';
         return;
       }
     });
