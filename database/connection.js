@@ -14,8 +14,6 @@ var connection = {
   },
 };
 
-// var pool = new pg.Pool(connection);
-
 module.exports = connection;
 
 // const url = require('url');
