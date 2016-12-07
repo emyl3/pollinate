@@ -1,12 +1,5 @@
-const pg = require('pg');
 const router = require('express').Router();
-const config = require('../db/connections.js');
-
-// var config = {
-//   database: 'pollinate',
-// };
-//
-// var pool = new pg.Pool(config);
+const pool = require('../database/connection.js');
 
 router.get('/userResponseRange', function (req, res) {
   pool.connect(function (err, client, done) {

@@ -1,6 +1,7 @@
 const pg = require('pg');
 
 var config = {
+  pg: pg,
   database: 'pollinate',
 };
 

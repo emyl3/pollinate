@@ -1,12 +1,6 @@
-const pg = require('pg');
 const router = require('express').Router();
-const config = require('../db/connections.js');
+const pool = require('../database/connection.js');
 
-// var config = {
-//   database: 'pollinate',
-// };
-//
-// var pool = new pg.Pool(config);
 
 router.get('/reward', function (req, res) {
   var flowerId = req.query.flowerId;
