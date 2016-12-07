@@ -1,11 +1,12 @@
 const pg = require('pg');
 const router = require('express').Router();
+const config = require('../db/connections.js');
 
-var config = {
-  database: 'pollinate',
-};
-
-var pool = new pg.Pool(config);
+// var config = {
+//   database: 'pollinate',
+// };
+//
+// var pool = new pg.Pool(config);
 
 router.get('/', function (req, res) {
   var userId = req.query.userId;
