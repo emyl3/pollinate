@@ -1,11 +1,20 @@
 const pg = require('pg');
 
-var config = {
-  pg: pg,
-  database: 'pollinate',
+const params = url.parse(process.env.DATABASE_URL);
+const auth = params.auth.split(':');
+
+var connection = {
+  database: {
+    host: params.hostname,
+    user: autho[0],
+    password: auth[1],
+    port: params.port,
+    database: params.pathname.split('/')[1],
+    ssl: true,
+  },
 };
 
-var pool = new pg.Pool(config);
+var pool = new pg.Pool(connection);
 
 module.exports = pool;
 
