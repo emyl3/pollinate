@@ -1,4 +1,6 @@
 # Pollinate
+Check out Pollinate for yourself at https://gentle-crag-14251.herokuapp.com/. If you do not want to create a new account, use: (username: test | password: test).
+
 Pollinate is the culmination of the solo project phase of Prime Digital Academy. The 2-week solo project phase included implementing a scope of work, managing and meeting deadlines, and creating a fully functional web application.
 
 Pollinate will help to cultivate a habit of writing and reflecting on self-affirmations while allowing the User to share affirmations of others as well. The purpose of this application is to serve hopefully as one of many supportive tools for those who may struggle with depression.
@@ -41,6 +43,8 @@ Users can select from a range of dates to reflect and review on the "nutrients" 
 <b>Technology Used</b>: SQL, Express, AngularJS, Node.js, Bootstrap, Passport, Twilio REST API, Moment.js, Angular-DragDrop
 
 Fork the repository. Set up a SQL database according to the `database.sql` file. Run `npm install` in the project directory. Then, run `npm start` and go to `localhost:3000` in a browser to run the application.
+
+Check out Pollinate for on Heroku at https://gentle-crag-14251.herokuapp.com/. If you do not want to create a new account, use: (username: test | password: test).
 
 # Authors
 - elisa lee
