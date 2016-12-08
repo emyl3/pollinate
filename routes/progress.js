@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const pool = require('../database/connection.js');
+const pool = require('../database/connection');
 
 router.get('/', function (req, res) {
   var userId = req.query.userId;

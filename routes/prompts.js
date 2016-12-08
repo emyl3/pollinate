@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const pool = require('../database/connection.js');
+const pool = require('../database/connection');
 
 router.get('/userResponseRange', function (req, res) {
   pool.connect(function (err, client, done) {
